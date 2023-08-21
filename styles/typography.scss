@@ -1,0 +1,68 @@
+h1, .hero {
+    @apply text-2xl font-bold font-poppins tracking-[-0.04em];  
+    @screen lg {
+      @apply text-[90px] leading-[120px];
+    }
+  }
+  
+  h2 {
+    @apply text-2xl font-bold font-poppins leading-[88px];
+  
+    @screen lg {
+      @apply text-[80px];
+    }
+  }
+  
+  
+  h3 {
+    @apply text-2xl font-bold font-poppins;
+  
+    @screen lg {
+      @apply text-[50px] leading-[55px];
+    }
+  }
+  
+  h4 {
+    @apply text-2xl font-bold;
+  
+    @screen lg {
+      @apply text-4xl;
+    }
+  }
+
+  .body-one, .body-one * {
+    @apply text-lg;
+  
+    @screen lg {
+      @apply text-xl leading-relaxed;
+    }
+  }
+
+  .body-two {
+    @apply text-xl;
+  
+    @screen lg {
+      @apply text-2xl leading-relaxed;
+    }
+
+  }
+
+  .small-copy {
+    @apply text-sm font-light;
+  
+    @screen lg {
+      @apply text-sm leading-relaxed;
+    }
+
+  }
+
+
+  .cta {
+    @apply text-xl font-semibold tracking-wider;
+  
+    @screen lg {
+      @apply leading-relaxed;
+    }
+  }
+  
+  // RICH TEXT STYLES ----------------------------------

@@ -1,0 +1,41 @@
+img {
+    /* image-rendering: auto; */
+    /* image-rendering: crisp-edges; */
+    image-rendering: pixelated;
+  }
+  
+  // GENERAL ----------------------------------------
+  
+  body * {
+    @apply font-normal text-base antialiased;
+      // Used to ensure blue highlight box does not appear when elements are tapped on touch devices
+      -webkit-tap-highlight-color: transparent;
+    }
+  
+  // TYPOGRAPHY ----------------------------------------
+
+  .component-padding {
+    padding-bottom: 320px;
+  }
+  
+  // STANDARD 12 COL GRID
+  
+  .grid-container {
+    @apply container lg:grid lg:grid-cols-2 xl:grid-cols-12 xl:gap-x-8 gap-x-6
+  }
+  
+  .video-radius video {
+    @apply rounded-xl
+  }
+
+ 
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+
+    /* Hide scrollbar for IE, Edge, and Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }

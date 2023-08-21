@@ -1,0 +1,13 @@
+import { SbBlokData, storyblokEditable } from '@storyblok/react';
+
+export interface I{{pascalCase name}} extends SbBlokData {
+  // ~~readonly props here~~
+}
+
+const {{pascalCase name}} = ({ blok } : { blok : I{{pascalCase name}} }) => (
+  <section className="w-full grid-container component-padding" {...storyblokEditable(blok)} >
+    {/* ~~Component content here - remove classes above as necessary~~ */}
+  </section>
+);
+
+export default {{pascalCase name}};

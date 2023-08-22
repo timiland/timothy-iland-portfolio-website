@@ -27,7 +27,6 @@ const Button = ({
   target = '',
   download,
   secondary,
-  link,
   iconName = '',
   iconFlip = false,
   linkCallback,
@@ -86,7 +85,12 @@ const Button = ({
       <Icon name={iconName} size={IconSizeEnum.lg} className={iconClasses} />
     </Link>
   ) : (
-    <button {...buttonProps} className={buttonClasses} disabled={disabled}>
+    <button
+      tabIndex={0}
+      {...buttonProps}
+      className={buttonClasses}
+      disabled={disabled}
+    >
       {children}
       <Icon name={iconName} size={IconSizeEnum.lg} className={iconClasses} />
     </button>

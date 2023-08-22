@@ -1,7 +1,6 @@
-import { SbImage } from '@atoms/SbImage/SbImage';
 import IAsset from '@models/IAsset';
 import ISiteConfig from '@models/ISiteConfig';
-import ContactForm, { IContactForm } from '@organisms/ContactForm/ContactForm';
+import ContactForm from '@organisms/ContactForm/ContactForm';
 import { useConfig } from '@stores/configProvider';
 import { SbBlokData, storyblokEditable } from '@storyblok/react';
 

@@ -20,8 +20,6 @@ const CtaPopOutSection = ({ blok }: { blok: ICtaPopOutSection }) => {
 
   const ref = useRef<HTMLDivElement>(null);
 
-  const downloadLink = { url: { url: downloadFile?.filename }, title: '' };
-
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],

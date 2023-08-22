@@ -1,5 +1,5 @@
-import { ErrorMessage, Field, useField, Form, Formik } from 'formik';
-import { SbBlokData, storyblokEditable } from '@storyblok/react';
+import { Form, Formik } from 'formik';
+import { SbBlokData } from '@storyblok/react';
 import * as yup from 'yup';
 import Button from '@atoms/Button/Button';
 import ButtonStyleEnum from '@models/enums/ButtonStyleEnum';
@@ -65,8 +65,8 @@ const ContactForm = ({
   secondaryImage,
 }: {
   blok: IContactForm;
-  primaryImage: IAsset;
-  secondaryImage: IAsset;
+  primaryImage?: IAsset;
+  secondaryImage?: IAsset;
 }) => {
   const {
     title,

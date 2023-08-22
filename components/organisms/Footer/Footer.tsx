@@ -42,7 +42,7 @@ const Footer = ({ blok }: { blok: IFooter }) => {
         <div className="lg:col-start-10 lg:col-span-2 h-full flex flex-col justify-between pt-12 lg:pt-0 px-20 lg:px-0">
           <SbImage className="w-full" src={logo.filename} alt={logo.alt} />
           <div className="w-full flex justify-between pl-8 pr-4 pt-6 lg:pt-0 mt-auto">
-            <a href={linkedInLink?.url}>
+            <a href={`mailto:${email?.url}`}>
               <Icon
                 name="envelope-o"
                 className="text-white hover:text-yellow"

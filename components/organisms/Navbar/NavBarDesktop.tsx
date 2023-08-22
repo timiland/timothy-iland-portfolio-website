@@ -46,7 +46,11 @@ const NavBarDesktop = ({ linkArray, contactCta }: INavBar) => {
   const activeLinks = (linkArray[activeDropdownIndex]?.links || []) as ILink[];
 
   return (
-    <motion.div className="pointer-events-auto flex justify-between px-10 items-center shadow-bold relative z-10 bg-black border-b-2 py-3 border-yellow text-white">
+    <motion.div
+      id="initialFocus"
+      tabIndex={-1}
+      className="pointer-events-auto flex justify-between px-10 items-center shadow-bold relative z-10 bg-black border-b-2 py-3 border-yellow text-white"
+    >
       <motion.div
         initial={{ width: '220px' }}
         animate={

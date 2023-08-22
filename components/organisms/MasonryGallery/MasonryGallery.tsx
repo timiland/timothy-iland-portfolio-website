@@ -1,3 +1,4 @@
+import Frame from '@atoms/Frame/Frame';
 import { SbImage } from '@atoms/SbImage/SbImage';
 import IAsset from '@models/IAsset';
 import { SbBlokData, storyblokEditable } from '@storyblok/react';
@@ -25,13 +26,13 @@ const MasonryGallery = ({ blok }: { blok: IMasonryGallery }) => {
         columnClassName="my-masonry-grid_column"
       >
         {images.map((image) => (
-          <div className="bg-gradient-to-b from-black-100 to-black p-3 border-yellow shadow-bold border-2 rounded-3xl overflow-clip">
+          <Frame>
             <SbImage
               className="w-full h-full drop-shadow-md bg-white rounded-2xl overflow-clip"
               src={image.filename}
               alt={image.alt}
             />
-          </div>
+          </Frame>
         ))}
       </Masonry>
     </section>

@@ -1,6 +1,6 @@
 import { ISbStoryData, SbBlokData, storyblokEditable } from '@storyblok/react';
 import dynamic from 'next/dynamic';
-import Icon from '@atoms/Icon/Icon';
+
 import Button from '@atoms/Button/Button';
 import { useConfig } from '@stores/configProvider';
 import ButtonStyleEnum from '@models/enums/ButtonStyleEnum';
@@ -8,6 +8,7 @@ import AnimateInOnScroll from '@atoms/AnimateInOnScroll/AnimateInOnScroll';
 import DirectionEnum from '@models/enums/DirectionEnum';
 import ISiteConfig from '@models/ISiteConfig';
 import QuoteBox from 'components/molecules/QuoteBox/QuoteBox';
+import IProject from '@models/IProject';
 
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
@@ -25,11 +26,14 @@ const ProjectFeature = ({ blok }: { blok: IProjectFeature }) => {
     clientQuoteName,
     client,
     projectTitle,
-  } = project.content;
+    websiteUrl,
+  } = project.content as IProject;
 
   const { labels } = useConfig() as ISiteConfig;
 
   const { readMoreLabel, viewWebsiteLabel, featuredCaseStudyLabel } = labels;
+
+  console.log({ project });
 
   return (
     <section
@@ -67,14 +71,14 @@ const ProjectFeature = ({ blok }: { blok: IProjectFeature }) => {
         <div className="flex gap-12 justify-center">
           <Button
             className="shadow-bold"
-            link={{}}
+            href={project.path}
             style_={ButtonStyleEnum.Outline}
           >
             {readMoreLabel}
           </Button>
           <Button
             className="shadow-bold"
-            link={{}}
+            href={websiteUrl.url}
             style_={ButtonStyleEnum.Outline}
           >
             {viewWebsiteLabel}

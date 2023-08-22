@@ -15,7 +15,6 @@ export interface IModal {
   readonly modalClasses?: string;
   readonly setIsOpen: (param: boolean) => void;
   readonly showCloseButton?: boolean;
-  readonly transparent?: boolean;
   readonly isCloseButtonFixed?: boolean;
   readonly closeButtonIconSize?: IconSizeEnum | number | string;
   readonly shouldCloseOnClickOutsideContent?: boolean;
@@ -30,12 +29,11 @@ const Modal = ({
   modalClasses,
   setIsOpen,
   showCloseButton = true,
-  transparent = false,
   isCloseButtonFixed = true,
   closeButtonIconSize = IconSizeEnum.md,
   shouldCloseOnClickOutsideContent = false,
 }: PropsWithChildren<IModal>) => {
-  const contentRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -89,57 +87,58 @@ const Modal = ({
 
   return (
     <Portal key="portal" mountId="modal-root">
-      {/* <FocusTrap
+      <FocusTrap
         focusTrapOptions={{
           preventScroll: true,
-        }}
-      > */}
-      <motion.div
-        animate={{ opacity: 1 }}
-        className="relative z-max h-auto inset-0"
-        exit={{ opacity: 0 }}
-        initial={{ opacity: 0 }}
-        transition={{
-          duration: 0.8,
-          ease: [0.04, 0.62, 0.23, 0.98],
+          fallbackFocus: '#initialFocus',
         }}
       >
-        <section className="fixed inset-0 z-100 text-white bg-black-100/50">
-          <div className="flex h-full w-full no-scrollbar">
-            <div
-              className={clsx(
-                modalClasses,
-                'container h-full w-full overflow-y-auto no-scrollbar'
-              )}
-            >
+        <motion.div
+          animate={{ opacity: 1 }}
+          className="relative z-max h-auto inset-0"
+          exit={{ opacity: 0 }}
+          initial={{ opacity: 0 }}
+          transition={{
+            duration: 0.8,
+            ease: [0.04, 0.62, 0.23, 0.98],
+          }}
+        >
+          <section className="fixed inset-0 z-100 text-white bg-black-100/50">
+            <div className="flex h-full w-full no-scrollbar">
               <div
-                className={clsx(contentClasses, 'relative py-20 text-left')}
-                ref={contentRef}
-              >
-                {showCloseButton && (
-                  <button
-                    onClick={close}
-                    className={clsx(
-                      'top-0 right-0 z-100 mt-4 mr-4 flex cursor-pointer flex-col items-center',
-                      isCloseButtonFixed ? 'fixed' : 'absolute'
-                    )}
-                  >
-                    <span className="p-4">
-                      <Icon
-                        name="close"
-                        className={crossClasses}
-                        size={closeButtonIconSize}
-                      />
-                    </span>
-                  </button>
+                className={clsx(
+                  modalClasses,
+                  'container h-full w-full overflow-y-auto no-scrollbar'
                 )}
-                {children}
+              >
+                <div
+                  className={clsx(contentClasses, 'relative py-20 text-left')}
+                >
+                  {showCloseButton && (
+                    <button
+                      tabIndex={0}
+                      onClick={close}
+                      className={clsx(
+                        'top-0 right-0 z-100 mt-4 mr-4 flex cursor-pointer flex-col items-center',
+                        isCloseButtonFixed ? 'fixed' : 'absolute'
+                      )}
+                    >
+                      <span className="p-4">
+                        <Icon
+                          name="close"
+                          className={crossClasses}
+                          size={closeButtonIconSize}
+                        />
+                      </span>
+                    </button>
+                  )}
+                  {children}
+                </div>
               </div>
             </div>
-          </div>
-        </section>
-      </motion.div>
-      {/* </FocusTrap> */}
+          </section>
+        </motion.div>
+      </FocusTrap>
     </Portal>
   );
 };

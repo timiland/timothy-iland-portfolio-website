@@ -1,5 +1,6 @@
 import { SbBlokData } from '@storyblok/react';
 import IAsset from './IAsset';
+import ISbURL from './ISbURL';
 import ITextBlock from './ITextBlock';
 
 export default interface IProject extends SbBlokData {
@@ -11,6 +12,7 @@ export default interface IProject extends SbBlokData {
   readonly clientQuoteName: string;
   readonly clientQuote: string;
   readonly images: IAsset[];
+  readonly websiteUrl: ISbURL;
   readonly additionalComponents: SbBlokData[];
   readonly keyFeatures: ITextBlock[];
 }

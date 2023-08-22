@@ -7,11 +7,7 @@ import NavBar from '@organisms/Navbar/NavBar';
 import getSiteConfig from '@services/getSiteConfig';
 import { getPaths, getStories } from '@services/storyblok';
 import { ConfigProvider } from '@stores/configProvider';
-import {
-  StoryblokComponent,
-  ISbStoryData,
-  useStoryblokState,
-} from '@storyblok/react';
+import { StoryblokComponent, ISbStoryData } from '@storyblok/react';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import Head from 'next/head';
 

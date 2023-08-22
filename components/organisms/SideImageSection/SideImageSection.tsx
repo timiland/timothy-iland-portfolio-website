@@ -14,7 +14,6 @@ import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import Button from '@atoms/Button/Button';
 import ButtonStyleEnum from '@models/enums/ButtonStyleEnum';
-import Link from 'next/link';
 
 export interface ISideImageSection extends SbBlokData {
   readonly title: string;

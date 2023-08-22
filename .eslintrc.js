@@ -1,6 +1,6 @@
 /** @type {import('eslint').Linter.BaseConfig} */
 module.exports = {
-  extends: ['prettier', 'airbnb', 'airbnb-typescript-prettier'],
+  extends: ['prettier', 'airbnb-typescript-prettier'],
   rules: {
     'no-underscore-dangle': 'off',
     'react/button-has-type': 'off',

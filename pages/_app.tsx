@@ -1,15 +1,7 @@
 /* eslint-disable camelcase */
 import '../styles/index.scss';
 import { storyblokInit, apiPlugin } from '@storyblok/react';
-import {
-  Urbanist,
-  Poppins,
-  Archivo,
-  Archivo_Black,
-  Sarabun,
-  Questrial,
-} from 'next/font/google';
-// import CharacterAnimationHero from '@organisms/CharacterAnimationHero/CharacterAnimationHero';
+import { Poppins } from 'next/font/google';
 import BulletSection from '@organisms/BulletSection/BulletSection';
 import CtaPopOutSection from '@organisms/CtaPopOutSection/CtaPopOutSection';
 import ProjectFeature from '@organisms/ProjectFeature/ProjectFeature';
@@ -21,10 +13,10 @@ import BasicHero from '@organisms/BasicHero/BasicHero';
 import Project from '@templates/Project';
 import Accordion from 'components/molecules/Accordion/Accordion';
 import TextHightlightSection from '@organisms/TextHightlightSection/TextHightlightSection';
+import MasonryGallery from '@organisms/MasonryGallery/MasonryGallery';
 import NavBar from '../components/organisms/Navbar/NavBar';
 import Page from '../components/templates/Page';
 import SideImageSection from '../components/organisms/SideImageSection/SideImageSection';
-import MasonryGallery from '@organisms/MasonryGallery/MasonryGallery';
 
 const CharacterAnimationHero = dynamic(
   () => import('@organisms/CharacterAnimationHero/CharacterAnimationHero'),

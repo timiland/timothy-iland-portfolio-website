@@ -1,7 +1,6 @@
 import DirectionEnum from '@models/enums/DirectionEnum';
-import { motion } from 'framer-motion';
 import { ReactNode, useRef } from 'react';
-import { useInView } from 'framer-motion';
+import { useInView, motion } from 'framer-motion';
 
 export interface IAnimateInOnScroll {
   className?: string;
@@ -14,7 +13,7 @@ const AnimateInOnScroll = ({
   children,
   direction = DirectionEnum.Up,
 }) => {
-  const ref = useRef<HTMLUListElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   const inView = useInView(ref, { once: true, amount: 0.75 });
 

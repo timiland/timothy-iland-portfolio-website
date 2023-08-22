@@ -6,7 +6,6 @@ import {
   SbBlokData,
   storyblokEditable,
 } from '@storyblok/react';
-import clsx from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 
 export interface IAccordionItem extends SbBlokData {

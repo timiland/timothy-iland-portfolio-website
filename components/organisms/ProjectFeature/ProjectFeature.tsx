@@ -33,8 +33,6 @@ const ProjectFeature = ({ blok }: { blok: IProjectFeature }) => {
 
   const { readMoreLabel, viewWebsiteLabel, featuredCaseStudyLabel } = labels;
 
-  console.log({ project });
-
   return (
     <section
       className="w-full grid-container gap-y-24 component-padding"

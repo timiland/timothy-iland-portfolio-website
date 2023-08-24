@@ -18,12 +18,9 @@ const Page = ({
   config: ISiteConfig;
   story: ISbStoryData;
 }) => {
-  // eslint-disable-next-line no-param-reassign
-  // story = useStoryblokState(story);
-
   const { navBar, footer } = config ?? {};
 
-  if (!story.content) {
+  if (!story?.content) {
     return <div>Loading...</div>;
   }
 
@@ -37,7 +34,7 @@ const Page = ({
         {navBar && <NavBar blok={navBar as INavBar} />}
         <BackgroundLogo colour={ColoursEnum.Black} />
         <div className="relative z-10 pt-[250px]">
-          <StoryblokComponent blok={story.content} />
+          {story?.content && <StoryblokComponent blok={story?.content} />}
         </div>
         <Footer blok={footer as IFooter} />
         <div className="fixed top-0 z-20" id="modal-root" />

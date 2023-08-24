@@ -1,11 +1,10 @@
-import { getStoryblokApi, ISbResult, ISbStoryParams } from '@storyblok/react';
-
 import { ParsedUrlQuery } from 'querystring';
+import { getStoryblokApi, ISbResult, ISbStoryParams } from '@storyblok/react';
 
 export const getStories = async ({
   params,
-  // preview,
-}: {
+}: // preview,
+{
   params: ParsedUrlQuery | undefined;
   // preview: boolean;
 }): Promise<ISbResult> => {
@@ -42,7 +41,7 @@ export const getPaths = async (): Promise<{ params: { slug: string[] } }[]> => {
 
   Object.keys(data.links).forEach((linkKey: any) => {
     if (
-      // data.links[linkKey].is_folder ||
+      data.links[linkKey].is_folder ||
       data.links[linkKey].slug.startsWith('globalcomponents/') ||
       data.links[linkKey].slug.startsWith('site-config')
     ) {

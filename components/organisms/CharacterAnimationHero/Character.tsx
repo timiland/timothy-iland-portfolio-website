@@ -6,133 +6,165 @@ Command: npx gltfjsx@6.1.4 public/Character.glb --types
 
 import * as THREE from 'three';
 import React, { useRef, useEffect, useMemo } from 'react';
-import { useGLTF, useAnimations, Clone } from '@react-three/drei';
+import { useGLTF, useAnimations } from '@react-three/drei';
 import { GLTF, SkeletonUtils } from 'three-stdlib';
 import { useGraph } from '@react-three/fiber';
-import { AnimationClip, AnimationObjectGroup } from 'three';
+import { AnimationClip, MeshStandardMaterial } from 'three';
 
 interface props {
   readonly model: string;
   readonly actionIndex: number;
+  readonly colourIndex: number;
 }
 
 type GLTFResult = GLTF & {
-  nodes: {
-    Character: THREE.SkinnedMesh;
-    mixamorigHips: THREE.Bone;
-  };
+  nodes: THREE.SkinnedMesh;
 };
 
-type ActionName = 'Armature|mixamo.com|Layer0' | 'danceAnimation';
-type GLTFActions = Record<ActionName, THREE.AnimationAction>;
+type CharacterNodes = {
+  ARMS: THREE.SkinnedMesh;
+  HEAD: THREE.SkinnedMesh;
+  HAIR: THREE.SkinnedMesh;
+  FEET_1: THREE.SkinnedMesh;
+  FEET_2: THREE.SkinnedMesh;
+  TROUSERS_1: THREE.SkinnedMesh;
+  TROUSERS_2: THREE.SkinnedMesh;
+  TSHIRT_1: THREE.SkinnedMesh;
+  TSHIRT_2: THREE.SkinnedMesh;
+  HAT_1: THREE.SkinnedMesh;
+  HAT_2: THREE.SkinnedMesh;
+};
 
-const Character = ({ model, actionIndex }: props) => {
-  const group = useRef<THREE.Group>();
+const Character = ({ model, actionIndex, colourIndex }: props) => {
+  const group = useRef<THREE.Group>(null);
   const { scene, animations } = useGLTF(model) as GLTFResult;
-  const { ref, actions, names } = useAnimations<AnimationClip>(
-    animations,
-    group
-  );
+  const { actions, names } = useAnimations<AnimationClip>(animations, group);
 
   // Skinned meshes cannot be re-used in threejs without cloning them
   const clone = useMemo(() => SkeletonUtils.clone(scene), [scene]);
   // useGraph creates two flat object collections for nodes and materials
   const { nodes } = useGraph(clone);
 
-  console.log({ scene }, { nodes }, { animations });
-
-  const meshes = nodes;
+  const {
+    ARMS,
+    HEAD,
+    HAIR,
+    FEET_1,
+    FEET_2,
+    TROUSERS_1,
+    TROUSERS_2,
+    TSHIRT_1,
+    TSHIRT_2,
+    HAT_1,
+    HAT_2,
+  } = nodes as CharacterNodes;
 
   // Change animation when the index changes
   useEffect(() => {
     // Reset and fade in animation after an index has been changed
     actions[`${names[actionIndex]}`]?.reset().fadeIn(0.5).play();
     // In the clean-up phase, fade it out
-    return () => actions[`${names[actionIndex]}`]?.fadeOut(0.5);
+    return () => {
+      actions[`${names[actionIndex]}`]?.fadeOut(0.5);
+    };
   }, [actions, actionIndex, names]);
 
   useGLTF.preload(model);
+
+  const green = new MeshStandardMaterial({
+    color: 0x008b45,
+  });
+  const black = new MeshStandardMaterial({
+    color: 0x06050d,
+  });
+  const yellow = new MeshStandardMaterial({
+    color: 0xffde17,
+  });
+  const white = new MeshStandardMaterial({
+    color: 0xffffff,
+  });
+
+  const coloursObj = [
+    { trims: yellow, base: green, trousers: green },
+    { trims: yellow, base: black, trousers: yellow },
+    { trims: black, base: white, trousers: white },
+  ];
 
   return (
     <group ref={group} dispose={null}>
       <group name="Scene">
         <group
           name="Armature"
-          scale={[2.5, 2.5, 2.5]}
-          position={[0, -7, 0]}
+          scale={[0.08, 0.08, 0.08]}
+          position={[0, -25, -10]}
           rotation={[Math.PI / 2, 0, 0]}
         >
           <primitive object={nodes.mixamorigHips} />
-          {/* <Clone object={nodes.Dovman} />; */}
           <skinnedMesh
-            name="Dovman"
-            geometry={nodes.ARMS_Cube021.geometry}
-            material={nodes.ARMS_Cube021.material}
-            skeleton={nodes.ARMS_Cube021.skeleton}
+            name="Arms"
+            geometry={ARMS.geometry}
+            material={ARMS.material}
+            skeleton={ARMS.skeleton}
           />
           <skinnedMesh
-            name="Dovman"
-            geometry={nodes.TSHIRT_Cube018mesh001_1.geometry}
-            material={nodes.TSHIRT_Cube018mesh001_1.material}
-            skeleton={nodes.TSHIRT_Cube018mesh001_1.skeleton}
+            name="Head"
+            geometry={HEAD.geometry}
+            material={HEAD.material}
+            skeleton={HEAD.skeleton}
           />
           <skinnedMesh
-            name="Dovman"
-            geometry={nodes.TROUSERS_Cube002mesh001_1.geometry}
-            material={nodes.TROUSERS_Cube002mesh001_1.material}
-            skeleton={nodes.TROUSERS_Cube002mesh001_1.skeleton}
+            name="Hair"
+            geometry={HAIR.geometry}
+            material={HAIR.material}
+            skeleton={HAIR.skeleton}
           />
           <skinnedMesh
-            name="Dovman"
-            geometry={nodes.FEET_Cube020mesh001_2.geometry}
-            material={nodes.FEET_Cube020mesh001_2.material}
-            skeleton={nodes.FEET_Cube020mesh001_2.skeleton}
+            name="Feet Laces / Sole"
+            geometry={FEET_1.geometry}
+            material={white}
+            skeleton={FEET_1.skeleton}
           />
           <skinnedMesh
-            name="Dovman"
-            geometry={nodes.FEET_Cube020mesh001_1.geometry}
-            material={nodes.FEET_Cube020mesh001_1.material}
-            skeleton={nodes.FEET_Cube020mesh001_1.skeleton}
+            name="Feet Material"
+            geometry={FEET_2.geometry}
+            material={black}
+            skeleton={FEET_2.skeleton}
           />
           <skinnedMesh
-            name="Dovman"
-            geometry={nodes.FEET_Cube020mesh001.geometry}
-            material={nodes.FEET_Cube020mesh001.material}
-            skeleton={nodes.FEET_Cube020mesh001.skeleton}
+            name="Hat Base"
+            geometry={HAT_1.geometry}
+            material={coloursObj[colourIndex].base}
+            skeleton={HAT_1.skeleton}
           />
           <skinnedMesh
-            name="Dovman"
-            geometry={nodes.TROUSERS_Cube002mesh001.geometry}
-            material={nodes.TROUSERS_Cube002mesh001.material}
-            skeleton={nodes.TROUSERS_Cube002mesh001.skeleton}
+            name="Hat Trim"
+            geometry={HAT_2.geometry}
+            material={coloursObj[colourIndex].trims}
+            skeleton={HAT_2.skeleton}
           />
           <skinnedMesh
-            name="Dovman"
-            geometry={nodes.HEAD_Cube022.geometry}
-            material={nodes.HEAD_Cube022.material}
-            skeleton={nodes.HEAD_Cube022.skeleton}
+            name="Trouser Base"
+            geometry={TROUSERS_1.geometry}
+            material={coloursObj[colourIndex].trousers}
+            skeleton={TROUSERS_1.skeleton}
           />
           <skinnedMesh
-            name="Dovman"
-            geometry={nodes.TSHIRT_Cube018mesh001.geometry}
-            material={nodes.TSHIRT_Cube018mesh001.material}
-            skeleton={nodes.TSHIRT_Cube018mesh001.skeleton}
-          >
-            <meshBasicMaterial color="#FDC628" />
-          </skinnedMesh>
+            name="Trouser Trim"
+            geometry={TROUSERS_2.geometry}
+            material={coloursObj[colourIndex].trims}
+            skeleton={TROUSERS_2.skeleton}
+          />
           <skinnedMesh
-            name="Dovman"
-            geometry={nodes.HAT_Cube023mesh001.geometry}
-            material={nodes.HAT_Cube023mesh001.material}
-            skeleton={nodes.HAT_Cube023mesh001.skeleton}
-          >
-            <meshBasicMaterial color="#06050D" />
-          </skinnedMesh>
+            name="Tshirt Base"
+            geometry={TSHIRT_1.geometry}
+            material={coloursObj[colourIndex].base}
+            skeleton={TSHIRT_1.skeleton}
+          />
           <skinnedMesh
-            name="Dovman"
-            geometry={nodes.HAT_Cube023mesh001_1.geometry}
-            material={nodes.HAT_Cube023mesh001_1.material}
-            skeleton={nodes.HAT_Cube023mesh001_1.skeleton}
+            name="Tshirt Trim"
+            geometry={TSHIRT_2.geometry}
+            material={coloursObj[colourIndex].trims}
+            skeleton={TSHIRT_2.skeleton}
           />
         </group>
       </group>

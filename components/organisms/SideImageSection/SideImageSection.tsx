@@ -59,6 +59,7 @@ const SideImageSection = ({ blok }: { blok: ISideImageSection }) => {
         )}
       >
         <SbImage
+          className=" xl:max-h-[600px]"
           alt={image.alt}
           src={image.filename}
           ratio={1}
@@ -70,7 +71,7 @@ const SideImageSection = ({ blok }: { blok: ISideImageSection }) => {
       </AnimateInOnScroll>
       <ul
         ref={ref}
-        className="col-span-full flex flex-wrap gap-24 mt-12 items-center justify-center order-2"
+        className="col-span-full flex flex-wrap gap-24 items-center justify-center order-2"
       >
         {links?.map((link, index) => (
           <motion.li

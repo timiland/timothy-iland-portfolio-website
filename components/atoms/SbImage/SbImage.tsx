@@ -70,7 +70,6 @@ export const SbImage = ({
       className={className}
       alt={alt}
       decoding={loading === 'lazy' ? 'async' : 'sync'}
-      /* @ts-expect-error fetchPriority exists */
       fetchPriority={loading === 'lazy' ? undefined : 'high'}
       loading={loading}
       sizes={sizes}

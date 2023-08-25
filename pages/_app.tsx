@@ -58,7 +58,11 @@ storyblokInit({
 // get correct typing on this
 function MyApp({ Component, pageProps }: any) {
   return (
-    <div className={`${poppins.variable} font-poppins bg-green text-white`}>
+    <div
+      id="initialFocus"
+      tabIndex={-1}
+      className={`${poppins.variable} font-poppins bg-green text-white`}
+    >
       <Component {...pageProps} />
     </div>
   );

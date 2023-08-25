@@ -24,7 +24,7 @@ const BasicHero = ({ blok }: { blok: IBasicHero }) => {
 
       {text && (
         <div
-          className="col-span-full xl:col-span-8 xl:col-start-3 text-center body-one"
+          className="col-span-full xl:col-span-8 xl:col-start-3 text-center body-lg"
           dangerouslySetInnerHTML={{
             __html: renderRichText(text),
           }}

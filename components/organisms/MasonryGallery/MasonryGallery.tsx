@@ -5,17 +5,23 @@ import { SbBlokData, storyblokEditable } from '@storyblok/react';
 import Masonry from 'react-masonry-css';
 
 export interface IMasonryGallery extends SbBlokData {
+  readonly title: string;
   readonly images: IAsset[];
 }
 
 const MasonryGallery = ({ blok }: { blok: IMasonryGallery }) => {
-  const { images } = blok;
+  const { images, title } = blok;
 
   return (
     <section
-      className="w-full grid-container component-padding"
+      className="w-full grid-container gap-y-12 component-padding"
       {...storyblokEditable(blok)}
     >
+      {title && (
+        <h3 className="col-span-full text-yellow drop-shadow-black_lg">
+          {title}
+        </h3>
+      )}
       <Masonry
         breakpointCols={{
           default: 3,

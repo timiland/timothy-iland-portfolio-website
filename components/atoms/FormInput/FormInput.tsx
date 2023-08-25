@@ -29,7 +29,7 @@ const FormInput = ({
       <div className="flex justify-between">
         <label
           htmlFor={name}
-          className={clsx('body-one', {
+          className={clsx('body-lg', {
             'text-red-600': meta.error && meta.touched,
           })}
         >

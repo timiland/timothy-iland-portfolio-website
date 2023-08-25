@@ -32,34 +32,20 @@ const SideImageSection = ({ blok }: { blok: ISideImageSection }) => {
 
   return (
     <section
-      className="relative w-full grid-container component-padding"
+      className="relative w-full grid-container gap-y-12 component-padding"
       {...storyblokEditable(blok)}
     >
-      <div
-        className={clsx(
-          imagePosition === DirectionEnum.Right
-            ? 'xl:col-start-2'
-            : 'xl:col-start-8 order-1',
-          'xl:col-span-4 text-center flex flex-col items-center justify-center gap-14'
-        )}
-      >
-        <h2 className="whitespace-pre-line text-yellow drop-shadow-black_lg">
-          {title}
-        </h2>
-        <div
-          className="body-one"
-          dangerouslySetInnerHTML={{ __html: renderRichText(text) }}
-        />
-      </div>
       <AnimateInOnScroll
         direction={DirectionEnum.Up}
         className={clsx(
-          imagePosition === DirectionEnum.Right ? 'xl:col-start-7' : 'order-0',
-          'xl:col-span-6 relative px-8 md:px-0 drop-shadow-xl'
+          imagePosition === DirectionEnum.Left
+            ? 'xl:col-start-2'
+            : 'xl:col-start-7 xl:order-2',
+          'xl:col-span-5 relative drop-shadow-xl'
         )}
       >
         <SbImage
-          className=" xl:max-h-[600px]"
+          className="xl:max-h-[600px]"
           alt={image.alt}
           src={image.filename}
           ratio={1}
@@ -69,6 +55,23 @@ const SideImageSection = ({ blok }: { blok: ISideImageSection }) => {
               278px`}
         />
       </AnimateInOnScroll>
+      <div
+        className={clsx(
+          imagePosition === DirectionEnum.Left
+            ? 'xl:col-start-8 xl:order-1'
+            : 'xl:col-start-2',
+          'xl:col-span-4 text-center flex flex-col items-center justify-center gap-14'
+        )}
+      >
+        <h2 className="whitespace-pre-line text-yellow drop-shadow-black_lg">
+          {title}
+        </h2>
+        <div
+          className="body-lg"
+          dangerouslySetInnerHTML={{ __html: renderRichText(text) }}
+        />
+      </div>
+
       <ul
         ref={ref}
         className="col-span-full flex flex-wrap gap-24 items-center justify-center order-2"

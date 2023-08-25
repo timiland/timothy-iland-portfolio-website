@@ -12,7 +12,7 @@ const NavBar = ({ blok }: { blok: INavBar }) => {
       className="fixed z-20 top-0 pointer-events-none w-full h-full"
       {...storyblokEditable(blok)}
     >
-      {breakpoint === 'sm' ? (
+      {breakpoint === 'sm' || breakpoint === 'md' ? (
         <NavBarMobile {...blok} />
       ) : (
         <NavBarDesktop {...blok} />

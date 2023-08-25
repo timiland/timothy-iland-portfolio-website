@@ -33,7 +33,7 @@ const Page = ({
       <ConfigProvider config={config}>
         {navBar && <NavBar blok={navBar as INavBar} />}
         <BackgroundLogo colour={ColoursEnum.Black} />
-        <div className="relative z-10 pt-[250px]">
+        <div className="relative z-10 pt-44 xl:pt-52">
           {story?.content && <StoryblokComponent blok={story?.content} />}
         </div>
         <Footer blok={footer as IFooter} />

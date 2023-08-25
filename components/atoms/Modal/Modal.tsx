@@ -94,6 +94,7 @@ const Modal = ({
         }}
       >
         <motion.div
+          aria-modal="true"
           animate={{ opacity: 1 }}
           className="relative z-max h-auto inset-0"
           exit={{ opacity: 0 }}

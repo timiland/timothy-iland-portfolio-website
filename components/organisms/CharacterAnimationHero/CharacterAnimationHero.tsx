@@ -118,9 +118,7 @@ const CharacterAnimationHero = ({
           </div>
         </div>
         <div className="col-span-6 col-start-4 flex text-center flex-col gap-12 pt-12">
-          {text && (
-            <p className="w-full body-one whitespace-pre-line">{text}</p>
-          )}
+          {text && <p className="w-full body-lg whitespace-pre-line">{text}</p>}
         </div>
       </div>
     </section>

@@ -46,11 +46,7 @@ const NavBarDesktop = ({ linkArray, contactCta }: INavBar) => {
   const activeLinks = (linkArray[activeDropdownIndex]?.links || []) as ILink[];
 
   return (
-    <motion.div
-      id="initialFocus"
-      tabIndex={-1}
-      className="pointer-events-auto flex justify-between px-10 items-center shadow-bold relative z-10 bg-black border-b-2 py-3 border-yellow text-white"
-    >
+    <motion.div className="pointer-events-auto flex justify-between px-10 items-center shadow-bold relative z-10 bg-black border-b-2 py-3 border-yellow text-white">
       <motion.div
         initial={{ width: '220px' }}
         animate={
@@ -117,7 +113,7 @@ const NavBarDesktop = ({ linkArray, contactCta }: INavBar) => {
       </ol>
       {isContactModalOpen && (
         <Modal isOpen={isContactModalOpen} setIsOpen={setIsContactModalOpen}>
-          <ContactForm blok={contactForm} />
+          <ContactForm blok={contactForm} setIsOpen={setIsContactModalOpen} />
         </Modal>
       )}
       <div className="absolute top-full left-0 w-full h-screen pointer-events-none overflow-hidden">

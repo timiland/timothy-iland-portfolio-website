@@ -42,7 +42,7 @@ const BulletSection = ({ blok }: { blok: IBulletSection }) => {
         <h3 className="whitespace-pre-line text-yellow drop-shadow-black_lg ">
           {title}
         </h3>
-        <p className="body-one">{text}</p>
+        <p className="body-lg">{text}</p>
         <ul className="list-disc flex-col flex gap-8 pl-4" ref={ref}>
           {bullets.map((textBlock, index) => (
             <motion.li

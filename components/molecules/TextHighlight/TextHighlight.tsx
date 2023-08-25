@@ -6,7 +6,7 @@ const TextHighlight = ({ title, text }: ITextBlock) => (
     {title && <h3 className="text-yellow drop-shadow-black_lg">{title}</h3>}
 
     <div
-      className="pl-12 body-one text-white"
+      className="pl-12 body-lg text-white"
       dangerouslySetInnerHTML={{
         __html: renderRichText(text),
       }}

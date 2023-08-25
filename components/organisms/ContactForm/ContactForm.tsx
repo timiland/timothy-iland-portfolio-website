@@ -7,6 +7,8 @@ import emailjs from '@emailjs/browser';
 import FormInput from '@atoms/FormInput/FormInput';
 import IAsset from '@models/IAsset';
 import { SbImage } from '@atoms/SbImage/SbImage';
+import Icon from '@atoms/Icon/Icon';
+import IconSizeEnum from '@models/enums/IconSizeEnum';
 
 export interface IContactForm extends SbBlokData {
   readonly title: string;
@@ -25,6 +27,7 @@ export interface IContactForm extends SbBlokData {
   readonly emailErrorMessage: string;
   readonly submitErrorMessage: string;
   readonly submitSuccessMessage: string;
+  readonly image: IAsset;
 }
 
 const initialStatus = {
@@ -61,43 +64,35 @@ const ContactFormFeedback = ({ actions, status }: IContactFormFeedback) => {
 
 const ContactForm = ({
   blok,
-  primaryImage,
-  secondaryImage,
+  setIsOpen,
 }: {
   blok: IContactForm;
-  primaryImage?: IAsset;
-  secondaryImage?: IAsset;
+  setIsOpen?: (param: boolean) => void;
 }) => {
   const {
-    title,
-    text,
-    nameLabel,
-    namePlaceholder,
+    emailErrorMessage,
     emailLabel,
     emailPlaceholder,
-    emailErrorMessage,
+    image,
     messageLabel,
     messagePlaceholder,
-    sendLabel,
-    requiredErrorMessage,
     nameErrorMessage,
+    nameLabel,
+    namePlaceholder,
+    requiredErrorMessage,
+    sendLabel,
     submitErrorMessage,
     submitSuccessMessage,
+    text,
+    title,
   } = blok;
   return (
     <div className="grid-container relative gap-y-12">
-      {primaryImage && (
+      {image && (
         <SbImage
-          className="absolute left-20 top-0 z-0 w-1/3 drop-shadow-md"
-          src={primaryImage.filename}
-          alt={primaryImage.alt}
-        />
-      )}
-      {secondaryImage && (
-        <SbImage
-          className="absolute bottom-0 right-20 z-0 w-1/3 drop-shadow-md"
-          src={secondaryImage.filename}
-          alt={secondaryImage.alt}
+          className="absolute hidden xl:flex left-0 top-[100px] z-0 lg:h-[80%] drop-shadow-lg"
+          src={image.filename}
+          alt={image.alt}
         />
       )}
       <Formik
@@ -148,8 +143,26 @@ const ContactForm = ({
         })}
       >
         {({ isSubmitting, isValid, dirty, status, setStatus, resetForm }) => (
-          <Form className="z-10 col-span-6 col-start-4 flex flex-col gap-20 items-stretch bg-gradient-to-b from-black-100 to-black text-white p-20 rounded-3xl relative shadow-bold border-yellow border-2">
-            <h3 className="w-full text-center">{title}</h3>
+          <Form
+            role={setIsOpen ? 'dialog' : ''}
+            aria-labelledby="ContactFormTitle"
+            className="z-10 col-span-6 col-start-6 flex flex-col gap-10 xl:gap-20 items-stretch bg-gradient-to-b from-black-100 to-black text-white px-8 py-10 xl:p-20 rounded-3xl relative shadow-bold border-yellow border-2"
+          >
+            {setIsOpen && (
+              <button
+                onClick={() => setIsOpen?.(false)}
+                className="top-8 right-8 absolute"
+              >
+                <Icon
+                  name="cross"
+                  size={IconSizeEnum.lg}
+                  className="text-white"
+                />
+              </button>
+            )}
+            <h3 id="ContactFormTitle" className="w-full text-center">
+              {title}
+            </h3>
             {status.attempted ? (
               <ContactFormFeedback
                 actions={{ resetForm, setStatus }}

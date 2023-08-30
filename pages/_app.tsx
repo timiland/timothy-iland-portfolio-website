@@ -14,6 +14,7 @@ import Accordion from 'components/molecules/Accordion/Accordion';
 import TextHightlightSection from '@organisms/TextHightlightSection/TextHightlightSection';
 import MasonryGallery from '@organisms/MasonryGallery/MasonryGallery';
 import dynamic from 'next/dynamic';
+import ProjectListing from '@organisms/ProjectListing/ProjectListing';
 import NavBar from '../components/organisms/Navbar/NavBar';
 import Page from '../components/templates/Page';
 import SideImageSection from '../components/organisms/SideImageSection/SideImageSection';
@@ -38,6 +39,7 @@ const components = {
   contactFormSection: ContactFormSection,
   ctaPopOutSection: CtaPopOutSection,
   masonryGallery: MasonryGallery,
+  projectListing: ProjectListing,
   footer: Footer,
   navBar: NavBar,
   page: Page,

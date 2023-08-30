@@ -112,7 +112,7 @@ const Project = ({ blok: project }: { blok: IProject }) => {
             className="rounded-3xl shadow-bold xl:col-start-2 gap-24 xl:col-span-8 w-full"
             key={heroImage.alt}
             alt={heroImage.alt}
-            sizes="(max-width: 400px) 480px, 600px"
+            sizes="(max-width: 400px) 480px, 100vw"
             src={heroImage.filename}
           />
           <motion.div

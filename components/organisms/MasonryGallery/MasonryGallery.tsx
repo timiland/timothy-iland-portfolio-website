@@ -35,6 +35,7 @@ const MasonryGallery = ({ blok }: { blok: IMasonryGallery }) => {
           <Frame>
             <SbImage
               className="w-full h-full drop-shadow-md bg-white rounded-2xl overflow-clip"
+              sizes="(max-width: 768px) 376px, 100vw"
               src={image.filename}
               alt={image.alt}
             />

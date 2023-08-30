@@ -48,7 +48,7 @@ const NavBarDesktop = ({ linkArray, contactCta }: INavBar) => {
   return (
     <motion.div className="pointer-events-auto flex justify-between px-10 items-center shadow-bold relative z-10 bg-black border-b-2 py-3 border-yellow text-white">
       <motion.div
-        initial={{ width: '220px' }}
+        initial={{ width: '230px' }}
         animate={
           atTop && !isContactModalOpen ? { width: '230px' } : { width: '160px' }
         }

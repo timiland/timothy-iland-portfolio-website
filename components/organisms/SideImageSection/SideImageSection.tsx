@@ -8,7 +8,6 @@ import IAsset from '@models/IAsset';
 import DirectionEnum from '@models/enums/DirectionEnum';
 import { SbImage } from '@atoms/SbImage/SbImage';
 import clsx from 'clsx';
-import AnimateInOnScroll from '@atoms/AnimateInOnScroll/AnimateInOnScroll';
 import ILink from '@models/ILink';
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
@@ -35,8 +34,7 @@ const SideImageSection = ({ blok }: { blok: ISideImageSection }) => {
       className="relative w-full grid-container gap-y-12 component-padding"
       {...storyblokEditable(blok)}
     >
-      <AnimateInOnScroll
-        direction={DirectionEnum.Up}
+      <div
         className={clsx(
           imagePosition === DirectionEnum.Left
             ? 'xl:col-start-2'
@@ -45,16 +43,15 @@ const SideImageSection = ({ blok }: { blok: ISideImageSection }) => {
         )}
       >
         <SbImage
-          className="xl:max-h-[600px]"
+          className="xl:max-h-[600px] object-contain w-full"
           alt={image.alt}
           src={image.filename}
-          ratio={1}
           sizes={`
-            (max-width: 710px) 120px,
-            (max-width: 991px) 193px,
-              278px`}
+            (max-width: 768px) 376px,
+            (max-width: 1024px) 800px,
+            1200px`}
         />
-      </AnimateInOnScroll>
+      </div>
       <div
         className={clsx(
           imagePosition === DirectionEnum.Left

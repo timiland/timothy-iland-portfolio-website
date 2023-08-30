@@ -8,7 +8,10 @@ export const getStories = async ({
   params: ParsedUrlQuery | undefined;
   // preview: boolean;
 }): Promise<ISbResult> => {
-  const relations: string[] = ['projectFeature.project'];
+  const relations: string[] = [
+    'projectFeature.project',
+    'projectListing.projects',
+  ];
 
   const slug = params?.slug ? (params.slug as string[]).join('/') : 'home';
 

@@ -31,6 +31,14 @@ h1, .hero {
     }
   }
 
+  h5 {
+    @apply text-[25px] font-bold font-poppins leading-[1.3];
+  
+    @screen md {
+      @apply text-[35px];
+    }
+  }
+
   .body-lg, .body-lg * {
     @apply text-[18px] leading-[1.6];
   
@@ -39,13 +47,8 @@ h1, .hero {
     }
   }
 
-  .body-sm {
-    @apply text-xl;
-  
-    @screen lg {
-      @apply text-2xl leading-relaxed;
-    }
-
+  .body-sm, .body-sm * {
+    @apply text-[20px] leading-[1.3];
   }
 
   .small-copy {
@@ -59,10 +62,10 @@ h1, .hero {
 
 
   .cta {
-    @apply text-xl font-semibold tracking-wider;
+    @apply text-[19px] leading-[1.3] tracking-[0.03em] font-semibold uppercase;
   
-    @screen lg {
-      @apply leading-relaxed;
+    @screen md {
+      @apply text-[19px];
     }
   }
   

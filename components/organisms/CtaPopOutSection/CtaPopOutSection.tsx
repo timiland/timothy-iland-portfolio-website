@@ -61,7 +61,7 @@ const CtaPopOutSection = ({ blok }: { blok: ICtaPopOutSection }) => {
           </div>
         </div>
         <motion.div
-          className="absolute hidden xl:flex z-20 top-0 2xl:-top-10 right-10 2xl:right-20 h-[110%] drop-shadow-lg"
+          className="absolute hidden xl:flex z-20 top-0 2xl:-top-10 right-0 2xl:right-20 h-[110%] drop-shadow-lg"
           style={{ translateY }}
         >
           <SbImage

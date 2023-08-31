@@ -63,7 +63,7 @@ function MyApp({ Component, pageProps }: any) {
     <div
       id="initialFocus"
       tabIndex={-1}
-      className={`${poppins.variable} font-poppins bg-green text-white`}
+      className={`${poppins.variable} font-poppins body bg-green text-white`}
     >
       <Component {...pageProps} />
     </div>

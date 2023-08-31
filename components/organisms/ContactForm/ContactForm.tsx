@@ -9,6 +9,8 @@ import IAsset from '@models/IAsset';
 import { SbImage } from '@atoms/SbImage/SbImage';
 import Icon from '@atoms/Icon/Icon';
 import IconSizeEnum from '@models/enums/IconSizeEnum';
+import { useRef } from 'react';
+import { useInView, motion } from 'framer-motion';
 
 export interface IContactForm extends SbBlokData {
   readonly title: string;
@@ -86,14 +88,33 @@ const ContactForm = ({
     text,
     title,
   } = blok;
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  const inView = useInView(ref, { once: true, amount: 0.6 });
+
   return (
-    <div className="grid-container relative gap-y-12">
+    <div ref={ref} className="grid-container relative gap-y-12">
       {image && (
-        <SbImage
-          className="absolute hidden xl:flex left-0 top-[100px] z-0 lg:h-[80%] drop-shadow-lg"
-          src={image.filename}
-          alt={image.alt}
-        />
+        <motion.div
+          className="absolute hidden xl:flex left-0 top-[100px] z-0 lg:h-[70%] 2xl:h-[80%]"
+          initial={{ translateX: '100px', scale: 0.8 }}
+          animate={
+            inView
+              ? { translateX: '0px', scale: 1 }
+              : { translateX: '100px', scale: 0.8 }
+          }
+          transition={{
+            duration: 0.4,
+            ease: 'easeOut',
+          }}
+        >
+          <SbImage
+            className="drop-shadow-lg"
+            src={image.filename}
+            alt={image.alt}
+          />
+        </motion.div>
       )}
       <Formik
         initialStatus={initialStatus}

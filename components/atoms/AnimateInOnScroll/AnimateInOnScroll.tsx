@@ -12,7 +12,7 @@ const AnimateInOnScroll = ({
   className,
   children,
   direction = DirectionEnum.Up,
-}) => {
+}: IAnimateInOnScroll) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const inView = useInView(ref, { once: true, amount: 0.75 });

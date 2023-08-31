@@ -10,6 +10,7 @@ import { useRef } from 'react';
 import { useScroll, useSpring, useTransform, motion } from 'framer-motion';
 import clsx from 'clsx';
 import AnimateInOnScroll from '@atoms/AnimateInOnScroll/AnimateInOnScroll';
+import DirectionEnum from '@models/enums/DirectionEnum';
 
 const ReactPlayer = dynamic(() => import('react-player/lazy'), { ssr: false });
 
@@ -18,19 +19,20 @@ const Project = ({ blok: project }: { blok: IProject }) => {
 
   const { labels } = useConfig() as ISiteConfig;
 
-  const { clientLabel, projectLabel, keyFeaturesLabel } = labels;
+  const { clientLabel, projectLabel, keyFeaturesLabel, briefLabel } = labels;
 
   const {
     additionalComponents,
-    heroVideo,
-    description,
-    keyFeatures,
-    projectTitle,
+    brief,
     client,
-    images,
-    heroImage,
-    clientQuoteName,
     clientQuote,
+    clientQuoteName,
+    heroImage,
+    heroVideo,
+    images,
+    keyFeatures,
+    personalProject,
+    projectTitle,
   } = project;
 
   const imageClassesTemplate = [
@@ -66,24 +68,37 @@ const Project = ({ blok: project }: { blok: IProject }) => {
         className="relative w-full grid-container component-padding gap-y-40"
         {...storyblokEditable(project)}
       >
-        <div className="xl:col-start-2 xl:col-span-5 flex flex-col gap-20">
-          <div>
-            {clientLabel && (
-              <p className="body-two font-bold drop-shadow-black_sm">
-                {clientLabel}
-              </p>
-            )}
-            <h3 className="text-yellow drop-shadow-black_lg">{client}</h3>
-          </div>
-          <div>
-            <p className="body-two font-bold drop-shadow-black_sm">
-              {projectLabel}
+        <div className="xl:col-start-2 xl:col-span-10 flex flex-col gap-6 p-12 bg-green-550 rounded-3xl">
+          <div className="flex flex-col">
+            <p className="body-sm underline underline-offset-4">
+              {projectLabel}:
             </p>
-            <h3 className="text-yellow drop-shadow-black_lg">{projectTitle}</h3>
+            <h4 className="text-yellow drop-shadow-black_lg pt-2">
+              {projectTitle}
+            </h4>
           </div>
-          <p className="body-two text-center">{description}</p>
-        </div>
-        <div className="xl:col-start-3 xl:col-span-8 flex flex-col gap-20">
+          {!personalProject && (
+            <>
+              <div>
+                {clientLabel && (
+                  <p className="body-sm underline underline-offset-4">
+                    {clientLabel}:
+                  </p>
+                )}
+                <h4 className="text-yellow drop-shadow-black_lg pt-2">
+                  {client}
+                </h4>
+              </div>
+              <div>
+                {clientLabel && briefLabel && (
+                  <p className="body-sm underline underline-offset-4">
+                    {briefLabel}
+                  </p>
+                )}
+                {brief && <p className="text-[16px] pt-4">{brief}</p>}
+              </div>
+            </>
+          )}
           <ReactPlayer
             muted
             class="video-radius"
@@ -124,6 +139,7 @@ const Project = ({ blok: project }: { blok: IProject }) => {
         </div>
         {images.map((image, index) => (
           <AnimateInOnScroll
+            direction={DirectionEnum.Up}
             className={clsx(imageClasses[index], 'w-full relative')}
           >
             <SbImage

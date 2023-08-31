@@ -1,5 +1,4 @@
 import Button from '@atoms/Button/Button';
-import Frame from '@atoms/Frame/Frame';
 import { SbImage } from '@atoms/SbImage/SbImage';
 import ButtonStyleEnum from '@models/enums/ButtonStyleEnum';
 import IProject from '@models/IProject';
@@ -25,9 +24,11 @@ const ProjectListing = ({ blok }: { blok: IProjectListing }) => {
       className="w-full grid-container gap-y-12 component-padding"
       {...storyblokEditable(blok)}
     >
-      <h1 className="col-span-full xl:col-span-8 xl:col-start-3 text-center text-yellow drop-shadow-black_lg">
-        {title}
-      </h1>
+      {title && (
+        <h1 className="col-span-full xl:col-span-8 xl:col-start-3 text-center text-yellow drop-shadow-black_lg">
+          {title}
+        </h1>
+      )}
 
       {text && (
         <div className="col-span-full xl:col-span-8 xl:col-start-3 text-center body-lg py-6">
@@ -43,7 +44,7 @@ const ProjectListing = ({ blok }: { blok: IProjectListing }) => {
             key={project.uuid}
             className="col-span-6 p-6 gap-6 lg:p-12 flex lg:gap-12 flex-col justify-start bg-green-550 rounded-3xl shadow-md"
           >
-            <div className="">
+            <div>
               <h5 className="text-yellow drop-shadow-black_sm">
                 {projectTitle}
               </h5>
@@ -58,7 +59,7 @@ const ProjectListing = ({ blok }: { blok: IProjectListing }) => {
                 alt={heroImage.alt}
               />
             </div>
-            {description && <div className="">{description}</div>}
+            {description && <div>{description}</div>}
             <div className="flex flex-col lg:flex-row gap-6 mt-auto items-start justify-start">
               {project?.path && (
                 <Button style_={ButtonStyleEnum.Outline} href={project.path}>

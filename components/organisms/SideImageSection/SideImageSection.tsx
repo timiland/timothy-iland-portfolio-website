@@ -31,7 +31,7 @@ const SideImageSection = ({ blok }: { blok: ISideImageSection }) => {
 
   return (
     <section
-      className="relative w-full grid-container gap-y-12 component-padding"
+      className="relative w-full grid-container items-center gap-y-12 component-padding"
       {...storyblokEditable(blok)}
     >
       <div

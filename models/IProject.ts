@@ -4,15 +4,17 @@ import ISbURL from './ISbURL';
 import ITextBlock from './ITextBlock';
 
 export default interface IProject extends SbBlokData {
-  readonly projectTitle: string;
+  readonly additionalComponents: SbBlokData[];
+  readonly personalProject: boolean;
+  readonly brief: string;
+  readonly client: string;
+  readonly clientQuote: string;
+  readonly clientQuoteName: string;
   readonly description: string;
   readonly heroImage: IAsset;
   readonly heroVideo: IAsset;
-  readonly client: string;
-  readonly clientQuoteName: string;
-  readonly clientQuote: string;
   readonly images: IAsset[];
-  readonly websiteUrl: ISbURL;
-  readonly additionalComponents: SbBlokData[];
   readonly keyFeatures: ITextBlock[];
+  readonly projectTitle: string;
+  readonly websiteUrl: ISbURL;
 }

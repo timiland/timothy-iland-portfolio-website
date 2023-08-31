@@ -15,6 +15,7 @@ import TextHightlightSection from '@organisms/TextHightlightSection/TextHightlig
 import MasonryGallery from '@organisms/MasonryGallery/MasonryGallery';
 import dynamic from 'next/dynamic';
 import ProjectListing from '@organisms/ProjectListing/ProjectListing';
+import LoadingSpinner from '@atoms/LoadingSpinner/LoadingSpinner';
 import NavBar from '../components/organisms/Navbar/NavBar';
 import Page from '../components/templates/Page';
 import SideImageSection from '../components/organisms/SideImageSection/SideImageSection';
@@ -22,6 +23,11 @@ import SideImageSection from '../components/organisms/SideImageSection/SideImage
 const CharacterAnimationHero = dynamic(
   () => import('@organisms/CharacterAnimationHero/CharacterAnimationHero'),
   {
+    loading: () => (
+      <div className="flex flex-col w-full h-[1500px] justify-center gap-12">
+        <LoadingSpinner />
+      </div>
+    ),
     ssr: false,
   }
 );

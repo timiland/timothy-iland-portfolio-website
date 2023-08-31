@@ -17,7 +17,7 @@ const QuoteBox = ({ quote, clientQuoteName, className }: IQuoteBox) => (
     <Icon name="quotes-right-alt" className="shrink-0 text-yellow" />
     <div>
       <p className="pb-4 pt-2 text-justify">{quote}</p>
-      <h4 className="body-lg">{clientQuoteName}</h4>
+      <h4 className="body">{clientQuoteName}</h4>
     </div>
     <Icon
       name="quotes-left-alt"

@@ -31,7 +31,7 @@ const ProjectListing = ({ blok }: { blok: IProjectListing }) => {
       )}
 
       {text && (
-        <div className="col-span-full xl:col-span-8 xl:col-start-3 text-center body-lg py-6">
+        <div className="col-span-full xl:col-span-8 xl:col-start-3 text-center body py-6">
           {text}
         </div>
       )}

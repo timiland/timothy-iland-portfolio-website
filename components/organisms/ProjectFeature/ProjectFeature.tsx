@@ -43,7 +43,7 @@ const ProjectFeature = ({ blok }: { blok: IProjectFeature }) => {
           {title}
         </h2>
       )}
-      <div className="relative xl:col-span-10 xl:col-start-2 grid lg:grid-cols-2 gap-12 bg-green-600 rounded-3xl pb-40 lg:pb-40 p-6 lg:p-12">
+      <div className="relative xl:col-span-10 xl:col-start-2 grid lg:grid-cols-2 gap-12 bg-green-600 rounded-3xl pb-40 lg:pb-40 p-6 lg:p-12 border-2 border-yellow shadow-xl">
         <div className="flex flex-col h-full justify-center gap-y-6">
           <div>
             <p className="underline underline-offset-4 pl-12">{clientLabel}:</p>

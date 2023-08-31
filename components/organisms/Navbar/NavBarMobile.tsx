@@ -83,20 +83,16 @@ const NavBarMobile = ({ linkArray, contactCta }: INavBar) => {
                   <li
                     {...storyblokEditable(linkItem)}
                     key={linkItem.title}
-                    className="text-left p-8 py-6 body-two text-white"
+                    className="text-left p-8 py-6 text-white"
                   >
-                    <Link
-                      className="body-two"
-                      href={linkItem.url.url}
-                      target={linkItem.url.target}
-                    >
+                    <Link href={linkItem.url.url} target={linkItem.url.target}>
                       {linkItem.title}
                     </Link>
                   </li>
                 ) : (
                   <>
                     <motion.button
-                      className="relative z-10 text-left body-two p-8 py-6 text-white"
+                      className="relative z-10 text-left p-8 py-6 text-white"
                       onClick={() =>
                         setExpandedIndex(expandedIndex === index ? null : index)
                       }
@@ -148,7 +144,7 @@ const NavBarMobile = ({ linkArray, contactCta }: INavBar) => {
                                   key={secondTierItem.title}
                                   href={secondTierItem.url.cached_url}
                                   target={secondTierItem.url.target}
-                                  className="body-lg"
+                                  className="body"
                                 >
                                   {secondTierItem.title}
                                 </Link>
@@ -163,7 +159,7 @@ const NavBarMobile = ({ linkArray, contactCta }: INavBar) => {
               )}
               {contactCta && (
                 <button
-                  className="text-left p-8 py-6 body-lg text-white"
+                  className="text-left p-8 py-6 body text-white"
                   onClick={() => setIsContactModalOpen(!isContactModalOpen)}
                 >
                   {contactCta}

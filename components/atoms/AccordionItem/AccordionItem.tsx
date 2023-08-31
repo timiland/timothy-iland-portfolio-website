@@ -36,7 +36,7 @@ const AccordionItem = ({ textBlock, index, setActiveIndex, isActive }) => {
             exit={{ opacity: 0, height: 0 }}
           >
             <div
-              className="pt-8 px-4 body-two text-white"
+              className="pt-8 px-4 text-white"
               {...storyblokEditable(textBlock)}
               dangerouslySetInnerHTML={{
                 __html: renderRichText(text),

@@ -58,7 +58,7 @@ const SideImageSection = ({ blok }: { blok: ISideImageSection }) => {
           {title}
         </h2>
         <div
-          className="body-lg"
+          className="body"
           dangerouslySetInnerHTML={{ __html: renderRichText(text) }}
         />
       </div>

@@ -1,3 +1,42 @@
+  .body-sm, .body-sm * {
+    @apply text-[20px] leading-[1.3];
+  }
+
+  .body, .body * {
+    @apply text-[18px] leading-[1.6];
+  
+    @screen md {
+      @apply text-[22px];
+    }
+  }
+
+  .body-lg, .body-lg * {
+    @apply text-[26px] leading-[1.6];
+  
+    @screen md {
+      @apply text-[26px];
+    }
+  }
+
+  .small-copy {
+    @apply text-sm font-light;
+  
+    @screen lg {
+      @apply text-sm leading-relaxed;
+    }
+
+  }
+
+
+  .cta {
+    @apply text-[20px] leading-[1.3] tracking-[0.05em] font-bold;
+  
+    @screen md {
+      @apply text-[20px];
+    }
+  }
+
+
 h1, .hero {
     @apply text-[65px] font-bold font-poppins tracking-[-0.01em] leading-[1.3];  
 
@@ -36,43 +75,6 @@ h1, .hero {
   
     @screen md {
       @apply text-[35px];
-    }
-  }
-
-  .body {
-    @apply text-base leading-[1.3];
-
-  }
-
-
-
-  .body-sm, .body-sm * {
-    @apply text-[20px] leading-[1.3];
-  }
-
-  .body-lg, .body-lg * {
-    @apply text-[18px] leading-[1.6];
-  
-    @screen md {
-      @apply text-[22px];
-    }
-  }
-
-  .small-copy {
-    @apply text-sm font-light;
-  
-    @screen lg {
-      @apply text-sm leading-relaxed;
-    }
-
-  }
-
-
-  .cta {
-    @apply text-[20px] leading-[1.3] tracking-[0.05em] font-bold;
-  
-    @screen md {
-      @apply text-[20px];
     }
   }
   

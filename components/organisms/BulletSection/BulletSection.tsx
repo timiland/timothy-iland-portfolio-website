@@ -28,7 +28,7 @@ const BulletSection = ({ blok }: { blok: IBulletSection }) => {
       className="grid-container component-padding"
       {...storyblokEditable(blok)}
     >
-      <div className="xl:col-span-5 xl:col-start-2 flex flex-col justify-center drop-shadow-xl body-two">
+      <div className="xl:col-span-5 xl:col-start-2 flex flex-col justify-center drop-shadow-xl">
         <SbImage
           alt={image?.alt}
           src={image?.filename}
@@ -42,7 +42,7 @@ const BulletSection = ({ blok }: { blok: IBulletSection }) => {
         <h3 className="whitespace-pre-line text-yellow drop-shadow-black_lg ">
           {title}
         </h3>
-        <p className="body-lg">{text}</p>
+        <p className="body">{text}</p>
         <ul className="list-disc flex-col flex gap-8 pl-4" ref={ref}>
           {bullets.map((textBlock, index) => (
             <motion.li

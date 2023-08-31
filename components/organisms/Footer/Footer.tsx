@@ -27,7 +27,7 @@ const Footer = ({ blok }: { blok: IFooter }) => {
         <div className="md:col-start-1 xl:col-span-8 xl:col-start-2">
           {linkLists.map((linkList) => (
             <div className="flex flex-col gap-4 items-center text-center md:items-start md:text-left">
-              <div key={linkList._uid} className="body-lg text-yellow">
+              <div key={linkList._uid} className="body text-yellow">
                 {linkList.title}
               </div>
               <ul className="flex flex-col gap-4">

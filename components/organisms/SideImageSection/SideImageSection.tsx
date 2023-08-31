@@ -9,8 +9,6 @@ import DirectionEnum from '@models/enums/DirectionEnum';
 import { SbImage } from '@atoms/SbImage/SbImage';
 import clsx from 'clsx';
 import ILink from '@models/ILink';
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
 import Button from '@atoms/Button/Button';
 import ButtonStyleEnum from '@models/enums/ButtonStyleEnum';
 
@@ -24,10 +22,6 @@ export interface ISideImageSection extends SbBlokData {
 
 const SideImageSection = ({ blok }: { blok: ISideImageSection }) => {
   const { title, text, image, imagePosition, links } = blok;
-
-  const ref = useRef<HTMLUListElement>(null);
-
-  const inView = useInView(ref, { once: true, amount: 0.75 });
 
   return (
     <section
@@ -69,35 +63,18 @@ const SideImageSection = ({ blok }: { blok: ISideImageSection }) => {
         />
       </div>
 
-      <ul
-        ref={ref}
-        className="col-span-full flex flex-wrap gap-24 items-center justify-center order-2"
-      >
-        {links?.map((link, index) => (
-          <motion.li
+      <div className="col-span-full flex flex-wrap gap-24 items-center justify-center order-2">
+        {links?.map((link) => (
+          <Button
             key={link.title}
-            initial={{ opacity: 0, translateY: 50 }}
-            animate={
-              inView
-                ? { opacity: 1, translateY: 0 }
-                : { opacity: 0, translateY: 50 }
-            }
-            transition={{
-              duration: 0.4,
-              delay: 0.3 * index,
-              ease: [0, 0, 0.32, 1],
-            }}
+            href={link.url.cached_url}
+            className="shadow-bold"
+            style_={ButtonStyleEnum.Outline}
           >
-            <Button
-              href={link.url.cached_url}
-              className="shadow-bold"
-              style_={ButtonStyleEnum.Outline}
-            >
-              {link.title}
-            </Button>
-          </motion.li>
+            {link.title}
+          </Button>
         ))}
-      </ul>
+      </div>
     </section>
   );
 };

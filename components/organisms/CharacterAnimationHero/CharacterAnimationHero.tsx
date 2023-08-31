@@ -73,8 +73,8 @@ const CharacterAnimationHero = ({
       <div className="container grid-container relative">
         <Suspense
           fallback={
-            <div className="relative col-span-8 col-start-3 pointer-events-none w-full flex gap-12 justify-center items-center h-[550px]">
-              <h1 className="w-full absolute top-0 text-center col-start-2 text-yellow drop-shadow-black_lg whitespace-pre-line pb-[250px]">
+            <div className="relative col-span-8 col-start-3 pointer-events-none w-full flex flex-col gap-24 justify-center items-center h-[550px]">
+              <h1 className="w-full text-center col-start-2 text-yellow drop-shadow-black_lg whitespace-pre-line">
                 {title}
               </h1>
               <LoadingSpinner />

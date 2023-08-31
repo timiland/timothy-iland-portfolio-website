@@ -68,7 +68,7 @@ const Project = ({ blok: project }: { blok: IProject }) => {
         className="relative w-full grid-container component-padding gap-y-40"
         {...storyblokEditable(project)}
       >
-        <div className="xl:col-start-2 xl:col-span-10 flex flex-col gap-6 p-12 bg-green-550 rounded-3xl">
+        <div className="xl:col-start-2 xl:col-span-10 flex flex-col gap-6 p-12 bg-green-600 rounded-3xl">
           <div className="flex flex-col">
             <p className="body-sm underline underline-offset-4">
               {projectLabel}:

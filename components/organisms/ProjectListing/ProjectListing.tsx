@@ -42,7 +42,7 @@ const ProjectListing = ({ blok }: { blok: IProjectListing }) => {
         return (
           <div
             key={project.uuid}
-            className="col-span-6 p-6 gap-6 lg:p-12 flex lg:gap-12 flex-col justify-start bg-green-550 rounded-3xl shadow-md"
+            className="col-span-6 p-6 gap-6 lg:p-12 flex lg:gap-12 flex-col justify-start bg-green-600 rounded-3xl shadow-md"
           >
             <div>
               <h5 className="text-yellow drop-shadow-black_sm">

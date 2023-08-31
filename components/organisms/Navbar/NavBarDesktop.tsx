@@ -134,7 +134,7 @@ const NavBarDesktop = ({ linkArray, contactCta }: INavBar) => {
                   duration: 0.3,
                   ease: 'linear',
                 }}
-                className="bg-green-550 pointer-events-auto w-full flex justify-end items-center p-8 gap-8 shadow-bold border-b-2 border-yellow"
+                className="bg-green-600 pointer-events-auto w-full flex justify-end items-center p-8 gap-8 shadow-bold border-b-2 border-yellow"
                 onKeyDown={(event) => {
                   if (event.key === 'Escape') {
                     setShowDropdown(false);

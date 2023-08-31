@@ -45,7 +45,7 @@ module.exports = {
           fire: '#E5403C',
         },
         yellow: {
-          DEFAULT: '#FED100',
+          DEFAULT: '#FDC628',
           50: '#FFF2B7',
           100: '#FFEFA2',
           200: '#FFE779',
@@ -60,12 +60,16 @@ module.exports = {
           950: '#020100',
         },
         green: {
-          DEFAULT: '#008B45',
-          300: '#00A351',
-          400: '#007A3D',
-          500: '#003D1E',
-          550: '#005329',
-          600: '#001B0D',
+          DEFAULT: '#00803F',
+          100: '#00FA7C',
+          200: '#00DB6D',
+          300: '#00BD5E',
+          400: '#009E4E',
+          500: '#00803F',
+          600: '#006130',
+          700: '#004221',
+          800: '#002412',
+          900: '#000503',
         },
       },
       boxShadow: {
@@ -84,10 +88,8 @@ module.exports = {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      }
+      },
     },
-    plugins: [
-      require('tailwind-scrollbar-hide')
-    ]
+    plugins: [require('tailwind-scrollbar-hide')],
   },
 };

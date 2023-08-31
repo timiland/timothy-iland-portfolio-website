@@ -27,10 +27,7 @@ const CtaPopOutSection = ({ blok }: { blok: ICtaPopOutSection }) => {
     offset: ['start end', 'end start'],
   });
 
-  const springScrollY = useSpring(scrollYProgress, {
-    bounce: 0.5,
-    mass: 0.25,
-  });
+  const springScrollY = useSpring(scrollYProgress);
 
   const translateY = useTransform(springScrollY, [0, 1], ['-110px', '110px']);
 

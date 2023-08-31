@@ -10,6 +10,7 @@ import addCorsPrefix from 'utilities/helpers/addCorsPrefix';
 import Button from '@atoms/Button/Button';
 import ButtonStyleEnum from '@models/enums/ButtonStyleEnum';
 import clsx from 'clsx';
+import LoadingSpinner from '@atoms/LoadingSpinner/LoadingSpinner';
 import Character from './Character';
 
 export interface ICharacterAnimationHero extends SbBlokData {
@@ -86,7 +87,7 @@ const CharacterAnimationHero = ({
               shadow-mapSize-height={1024}
             />
             <ambientLight />
-            <Suspense fallback={null}>
+            <Suspense fallback={<LoadingSpinner />}>
               <Character
                 model={modelUrl}
                 actionIndex={actionIndex}

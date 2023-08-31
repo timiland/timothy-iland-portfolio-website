@@ -72,13 +72,13 @@ const Character = ({ model, actionIndex, colourIndex }: props) => {
   useGLTF.preload(model);
 
   const green = new MeshStandardMaterial({
-    color: 0x008b45,
+    color: 0x00803f,
   });
   const black = new MeshStandardMaterial({
     color: 0x06050d,
   });
   const yellow = new MeshStandardMaterial({
-    color: 0xffde17,
+    color: 0xfdc628,
   });
   const white = new MeshStandardMaterial({
     color: 0xffffff,

@@ -75,26 +75,26 @@ const CharacterAnimationHero = ({
           <h1 className="w-full absolute top-0 text-center col-start-2 text-yellow drop-shadow-black_lg whitespace-pre-line pb-[250px]">
             {title}
           </h1>
-          <Canvas
-            className=""
-            shadows
-            camera={{ position: [0, 0, 75], fov: 43 }}
-          >
-            <directionalLight
-              position={[-5, 5, 5]}
-              castShadow
-              shadow-mapSize-width={1024}
-              shadow-mapSize-height={1024}
-            />
-            <ambientLight />
-            <Suspense fallback={<LoadingSpinner />}>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Canvas
+              className=""
+              shadows
+              camera={{ position: [0, 0, 75], fov: 43 }}
+            >
+              <directionalLight
+                position={[-5, 5, 5]}
+                castShadow
+                shadow-mapSize-width={1024}
+                shadow-mapSize-height={1024}
+              />
+              <ambientLight />
               <Character
                 model={modelUrl}
                 actionIndex={actionIndex}
                 colourIndex={colourIndex}
               />
-            </Suspense>
-          </Canvas>
+            </Canvas>
+          </Suspense>
         </div>
         <div className="col-span-8 col-start-3 flex text-center flex-col gap-12">
           <Suspense fallback={null}>

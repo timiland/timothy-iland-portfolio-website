@@ -1,0 +1,6 @@
+https://www.example.com.html
+https://www.example.com/web-development.html
+https://www.example.com/graphic-design.html
+https://www.example.com/projects.html
+https://www.example.com/projects/broadcast-msoa.html
+https://www.example.com/projects/dog-selector.html

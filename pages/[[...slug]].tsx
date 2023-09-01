@@ -28,7 +28,16 @@ const Page = ({
     <div className="w-screen">
       <Head>
         <title>Timothy Iland</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          type="image/svg+xml"
+          href="/assets/images/favicon.svg"
+        />
+        <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+        <meta
+          name="description"
+          content="Written by A.N. Author, Illustrated by V. Gogh, Price: $17.99, Length: 784 pages"
+        />
       </Head>
       <ConfigProvider config={config}>
         {navBar && <NavBar blok={navBar as INavBar} />}

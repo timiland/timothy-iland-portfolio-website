@@ -44,24 +44,24 @@ const ProjectFeature = ({ blok }: { blok: IProjectFeature }) => {
         </h2>
       )}
       <div className="relative xl:col-span-10 xl:col-start-2 grid lg:grid-cols-2 gap-12 bg-green-600 rounded-3xl pb-40 lg:pb-40 p-6 lg:p-12 shadow-xl">
-        <div className="flex flex-col h-full justify-center gap-y-6">
+        <div className="flex flex-col h-full justify-between gap-y-6 pt-6">
           <div>
             <p className="underline underline-offset-4 pl-12">{clientLabel}:</p>
-            <h5 className="text-center text-yellow drop-shadow-black_sm pt-2">
+            <h4 className="text-center text-yellow drop-shadow-black_sm pt-2">
               {client}
-            </h5>
+            </h4>
           </div>
           <div>
             <p className="underline underline-offset-4 pl-12">
               {projectLabel}:
             </p>
             {projectTitle && (
-              <h5 className="text-center text-yellow drop-shadow-black_sm pt-2">
+              <h4 className="text-center text-yellow drop-shadow-black_sm pt-2">
                 {projectTitle}
-              </h5>
+              </h4>
             )}
           </div>
-          <p className="text-center col-span-full text-white mt-auto">
+          <p className="text-center col-span-full body-sm 2xl:px-4 text-white mt-auto">
             {description}
           </p>
         </div>

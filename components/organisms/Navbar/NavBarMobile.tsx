@@ -75,7 +75,7 @@ const NavBarMobile = ({ linkArray, contactCta }: INavBar) => {
               duration: 0.3,
               ease: 'linear',
             }}
-            className="text-black pointer-events-auto overflow-scroll flex flex-col border-b-2 border-yellow bg-green-500 py-2"
+            className="text-black pointer-events-auto overflow-scroll flex flex-col border-b-2 border-yellow bg-green py-2"
           >
             <>
               {linkArray.map((linkItem, index) =>
@@ -85,14 +85,18 @@ const NavBarMobile = ({ linkArray, contactCta }: INavBar) => {
                     key={linkItem.title}
                     className="text-left p-8 py-6 text-white"
                   >
-                    <Link href={linkItem.url.url} target={linkItem.url.target}>
+                    <Link
+                      href={linkItem.url.url}
+                      target={linkItem.url.target}
+                      className="body"
+                    >
                       {linkItem.title}
                     </Link>
                   </li>
                 ) : (
                   <>
                     <motion.button
-                      className="relative z-10 text-left p-8 py-6 text-white"
+                      className="relative body z-10 text-left p-8 py-6 text-white"
                       onClick={() =>
                         setExpandedIndex(expandedIndex === index ? null : index)
                       }
@@ -122,7 +126,7 @@ const NavBarMobile = ({ linkArray, contactCta }: INavBar) => {
                             duration: 0.5,
                             ease: [0.04, 0.62, 0.23, 0.98],
                           }}
-                          className="flex flex-col bg-black border-yellow border-t-2 border-b-2 overflow-hidden pl-2"
+                          className="flex flex-col bg-green-600 overflow-hidden pl-2"
                         >
                           {linkItem.links.map(
                             (secondTierItem, secondTierIndex) => (
@@ -144,7 +148,7 @@ const NavBarMobile = ({ linkArray, contactCta }: INavBar) => {
                                   key={secondTierItem.title}
                                   href={secondTierItem.url.cached_url}
                                   target={secondTierItem.url.target}
-                                  className="body"
+                                  className=""
                                 >
                                   {secondTierItem.title}
                                 </Link>

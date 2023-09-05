@@ -15,9 +15,9 @@ const TextHightlightSection = ({ blok }: { blok: ITextHightlightSection }) => {
       className="w-full grid-container gap-y-24 component-padding"
       {...storyblokEditable(blok)}
     >
-      <h1 className="text-yellow drop-shadow-black_lg col-span-full text-center">
+      <h2 className="text-yellow drop-shadow-black_lg col-span-full text-center">
         {title}
-      </h1>
+      </h2>
       <ul className="xl:col-start-3 xl:col-span-8 flex flex-col gap-12">
         {highlights.map((highlight) => (
           <TextHighlight {...highlight} />

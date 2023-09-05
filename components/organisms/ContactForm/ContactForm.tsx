@@ -167,7 +167,7 @@ const ContactForm = ({
           <Form
             role={setIsOpen ? 'dialog' : ''}
             aria-labelledby="ContactFormTitle"
-            className="z-10 col-span-6 col-start-6 flex flex-col gap-10 xl:gap-20 items-stretch bg-gradient-to-b from-black-100 to-black text-white px-8 py-10 xl:p-20 rounded-3xl relative shadow-bold border-yellow border-2"
+            className="z-10 col-span-6 col-start-6 flex flex-col gap-10 xl:gap-20 items-stretch bg-gradient-to-b from-black-100 to-black text-white px-8 pb-10 pt-20 xl:p-20 rounded-3xl relative shadow-bold border-yellow border-2"
           >
             {setIsOpen && (
               <button

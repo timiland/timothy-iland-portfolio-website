@@ -39,7 +39,6 @@ const ActionButtons = ({ model, setActionIndex }) => {
   return (
     <div className="flex gap-4 flex-wrap justify-center">
       {actions.map((action, index) => (
-        // <ActionTag name={action.name} callback={() => setActionIndex(index)} />
         <Button
           style_={ButtonStyleEnum.Outline}
           onClick={() => setActionIndex(index)}
@@ -73,7 +72,7 @@ const CharacterAnimationHero = ({
       <div className="container grid-container relative">
         <Suspense
           fallback={
-            <div className="relative col-span-8 col-start-3 pointer-events-none w-full flex flex-col gap-40 justify-start items-center h-[705px]">
+            <div className="relative col-span-8 col-start-3 w-full flex flex-col gap-40 justify-start items-center h-[705px]">
               <h1 className="w-full text-center col-start-2 text-yellow drop-shadow-black_lg whitespace-pre-line">
                 {title}
               </h1>
@@ -81,9 +80,9 @@ const CharacterAnimationHero = ({
             </div>
           }
         >
-          <div className="relative col-span-8 col-start-3 pointer-events-none w-full h-[705px]">
+          <div className="relative col-span-8 col-start-3 w-full h-[705px]">
             <div className="h-[550px]">
-              <h1 className="w-full absolute top-0 text-center col-start-2 text-yellow drop-shadow-black_lg whitespace-pre-line pb-[250px]">
+              <h1 className="w-full absolute top-0 text-center col-start-2 text-yellow drop-shadow-black_lg whitespace-pre-line">
                 {title}
               </h1>
               <Canvas camera={{ position: [0, 0, 75], fov: 43 }}>

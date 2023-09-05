@@ -46,6 +46,7 @@ const BulletSection = ({ blok }: { blok: IBulletSection }) => {
         <ul className="list-disc flex-col flex gap-8 pl-4" ref={ref}>
           {bullets.map((textBlock, index) => (
             <motion.li
+              className="rich-text-area"
               initial={{ opacity: 0, translateY: 50 }}
               animate={
                 inView

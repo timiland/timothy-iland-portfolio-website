@@ -35,7 +35,7 @@ const ProjectFeature = ({ blok }: { blok: IProjectFeature }) => {
 
   return (
     <section
-      className="w-full grid-container gap-y-24 component-padding mb-[150px]"
+      className="w-full grid-container gap-y-24 component-padding xl:mb-[150px]"
       {...storyblokEditable(blok)}
     >
       {title && (
@@ -43,30 +43,32 @@ const ProjectFeature = ({ blok }: { blok: IProjectFeature }) => {
           {title}
         </h2>
       )}
-      <div className="relative xl:col-span-10 xl:col-start-2 grid lg:grid-cols-2 gap-12 bg-green-600 rounded-3xl pb-40 lg:pb-40 p-6 lg:p-12 shadow-xl">
-        <div className="flex flex-col h-full justify-between gap-y-6 pt-6">
+      <div className="relative xl:col-span-10 xl:col-start-2 flex flex-col lg:grid lg:grid-cols-2 gap-12 bg-green-600 rounded-3xl pb-8 lg:pb-40 p-6 lg:p-12 shadow-xl">
+        <div className="flex flex-col xl:h-full justify-between gap-y-6 pt-6 w-full">
           <div>
-            <p className="underline underline-offset-4 pl-12">{clientLabel}:</p>
-            <h4 className="text-center text-yellow drop-shadow-black_sm pt-2">
+            <p className="underline underline-offset-4 xl:pl-12">
+              {clientLabel}:
+            </p>
+            <h5 className="xl:text-center text-yellow drop-shadow-black_sm pt-2">
               {client}
-            </h4>
+            </h5>
           </div>
           <div>
-            <p className="underline underline-offset-4 pl-12">
+            <p className="underline underline-offset-4 xl:pl-12">
               {projectLabel}:
             </p>
             {projectTitle && (
-              <h4 className="text-center text-yellow drop-shadow-black_sm pt-2">
+              <h5 className="xl:text-center text-yellow drop-shadow-black_sm pt-2">
                 {projectTitle}
-              </h4>
+              </h5>
             )}
           </div>
-          <p className="text-center col-span-full body-sm 2xl:px-4 text-white mt-auto">
+          <p className="xl:text-center col-span-full body-sm 2xl:px-4 text-white">
             {description}
           </p>
         </div>
 
-        <div className="flex flex-col justify-center gap-12">
+        <div className="flex flex-col justify-center gap-12 w-full">
           <div>
             <ReactPlayer
               muted
@@ -79,7 +81,7 @@ const ProjectFeature = ({ blok }: { blok: IProjectFeature }) => {
               width="100%"
             />
           </div>
-          <div className="flex gap-12 justify-center">
+          <div className="flex flex-col xl:flex-row gap-12 items-start justify-center">
             <Button
               className="shadow-bold"
               href={project.path}
@@ -96,7 +98,7 @@ const ProjectFeature = ({ blok }: { blok: IProjectFeature }) => {
             </Button>
           </div>
         </div>
-        <div className="col-span-6 col-start-4 absolute -bottom-40 w-2/3 left-1/2 -translate-x-1/2">
+        <div className="col-span-6 col-start-4 hidden xl:flex xl:absolute -bottom-40 w-2/3 left-1/2 -translate-x-1/2">
           <AnimateInOnScroll direction={DirectionEnum.Up}>
             <QuoteBox quote={clientQuote} clientQuoteName={clientQuoteName} />
           </AnimateInOnScroll>

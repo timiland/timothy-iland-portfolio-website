@@ -79,3 +79,20 @@ h1, .hero {
   }
   
   // RICH TEXT STYLES ----------------------------------
+
+
+  .rich-text-area {
+
+    a {
+      @apply underline text-yellow font-medium
+    }
+
+    b {
+      @apply font-semibold
+    }
+
+    u {
+      @apply underline
+    }
+
+  }

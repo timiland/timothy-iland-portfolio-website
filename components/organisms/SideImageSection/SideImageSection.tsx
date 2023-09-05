@@ -63,7 +63,7 @@ const SideImageSection = ({ blok }: { blok: ISideImageSection }) => {
         />
       </div>
 
-      <div className="col-span-full flex flex-wrap gap-24 items-center justify-center order-2">
+      <div className="col-span-full flex flex-wrap gap-12 xl:gap-24 items-center justify-center order-2">
         {links?.map((link) => (
           <Button
             key={link.title}

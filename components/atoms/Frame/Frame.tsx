@@ -10,7 +10,7 @@ const Frame = ({ children, className, ...rest }: Props) => (
     {...rest}
     className={clsx(
       className,
-      'bg-gradient-to-b from-black-100 to-black p-3 border-yellow shadow-bold border-2 rounded-3xl overflow-clip'
+      'bg-black p-3 border-yellow shadow-bold border-2 rounded-3xl overflow-clip'
     )}
   >
     {children}

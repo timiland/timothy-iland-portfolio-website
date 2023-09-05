@@ -11,7 +11,7 @@ const QuoteBox = ({ quote, clientQuoteName, className }: IQuoteBox) => (
   <div
     className={clsx(
       className,
-      'flex gap-6 bg-gradient-to-b from-black-100 to-black p-8 border-2 shadow-bold rounded-3xl border-yellow'
+      'flex gap-6 bg-black p-8 border-2 shadow-bold rounded-3xl border-yellow'
     )}
   >
     <Icon name="quotes-right-alt" className="shrink-0 text-yellow" />

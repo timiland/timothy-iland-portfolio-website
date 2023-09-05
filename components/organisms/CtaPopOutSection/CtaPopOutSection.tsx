@@ -43,7 +43,7 @@ const CtaPopOutSection = ({ blok }: { blok: ICtaPopOutSection }) => {
       >
         <div
           ref={ref}
-          className="xl:col-start-2 xl:col-span-6 bg-gradient-to-b from-black-100 to-black text-white p-10 xl:p-20 rounded-3xl relative z-10 shadow-bold border-yellow border-2"
+          className="xl:col-start-2 xl:col-span-6 bg-black text-white p-10 xl:p-20 rounded-3xl relative z-10 shadow-bold border-yellow border-2"
         >
           <div className="flex flex-col justify-start items-start gap-10 xl:gap-20 whitespace-pre-line">
             <h3>{title}</h3>

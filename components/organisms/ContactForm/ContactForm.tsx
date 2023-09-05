@@ -56,7 +56,7 @@ const ContactFormFeedback = ({ actions, status }: IContactFormFeedback) => {
 
   return (
     <>
-      <div>{status.statusMessage}</div>
+      <div className="body text-center">{status.statusMessage}</div>
       {!status.success && (
         <Button onClick={() => handleClick()}>Try again</Button>
       )}
@@ -94,28 +94,7 @@ const ContactForm = ({
   const inView = useInView(ref, { once: true, amount: 0.6 });
 
   return (
-    <div ref={ref} className="grid-container relative gap-y-12">
-      {image && (
-        <motion.div
-          className="absolute hidden xl:flex left-0 top-[100px] z-0 lg:h-[70%] 2xl:h-[80%]"
-          initial={{ translateX: '100px', scale: 0.8 }}
-          animate={
-            inView
-              ? { translateX: '0px', scale: 1 }
-              : { translateX: '100px', scale: 0.8 }
-          }
-          transition={{
-            duration: 0.4,
-            ease: 'easeOut',
-          }}
-        >
-          <SbImage
-            className="drop-shadow-lg"
-            src={image.filename}
-            alt={image.alt}
-          />
-        </motion.div>
-      )}
+    <div ref={ref}>
       <Formik
         initialStatus={initialStatus}
         initialValues={{
@@ -167,72 +146,96 @@ const ContactForm = ({
           <Form
             role={setIsOpen ? 'dialog' : ''}
             aria-labelledby="ContactFormTitle"
-            className="z-10 col-span-6 col-start-6 flex flex-col gap-10 xl:gap-20 items-stretch bg-gradient-to-b from-black-100 to-black text-white px-8 pb-10 pt-20 xl:p-20 rounded-3xl relative shadow-bold border-yellow border-2"
+            className="relative grid-container gap-y-12"
           >
-            {setIsOpen && (
-              <button
-                onClick={() => setIsOpen?.(false)}
-                className="top-8 right-8 absolute"
+            {image && !status.success && !status.attempted && (
+              <motion.div
+                className="absolute hidden xl:flex left-0 top-[100px] z-0 lg:h-[70%] 2xl:h-[80%]"
+                initial={{ translateX: '100px', scale: 0.8 }}
+                animate={
+                  inView
+                    ? { translateX: '0px', scale: 1 }
+                    : { translateX: '100px', scale: 0.8 }
+                }
+                transition={{
+                  duration: 0.4,
+                }}
               >
-                <Icon
-                  name="cross"
-                  size={IconSizeEnum.lg}
-                  className="text-white"
+                <SbImage
+                  className="drop-shadow-lg"
+                  src={image.filename}
+                  alt={image.alt}
                 />
-              </button>
+              </motion.div>
             )}
-            <h3 id="ContactFormTitle" className="w-full text-center">
-              {title}
-            </h3>
-            {status.attempted ? (
-              <ContactFormFeedback
-                actions={{ resetForm, setStatus }}
-                status={status}
-              />
-            ) : (
-              <>
-                <div className="col-span-6 col-start-4 text-center">{text}</div>
-                <div className="flex flex-col items-stretch gap-6">
-                  <FormInput
-                    className="w-full"
-                    name="name"
-                    required
-                    label={nameLabel}
-                    placeholder={namePlaceholder}
+            <div className="relative z-10 col-span-6 col-start-6 flex flex-col gap-10 xl:gap-20 items-stretch bg-black text-white px-8 pb-10 pt-20 xl:p-20 rounded-3xl shadow-bold border-yellow border-2">
+              {setIsOpen && (
+                <button
+                  onClick={() => setIsOpen?.(false)}
+                  className="top-8 right-8 absolute"
+                >
+                  <Icon
+                    name="cross"
+                    size={IconSizeEnum.lg}
+                    className="text-white"
                   />
-                  <FormInput
-                    name="email"
-                    required
-                    label={emailLabel}
-                    placeholder={emailPlaceholder}
-                  />
-                  <FormInput
-                    className="h-40"
-                    textArea
-                    name="message"
-                    required
-                    label={messageLabel}
-                    placeholder={messagePlaceholder}
-                  />
-                  <div className="w-full flex justify-end pt-4">
-                    <Button
-                      iconName="envelope-o"
-                      style_={ButtonStyleEnum.Outline}
-                      disabled={
-                        isSubmitting ||
-                        !isValid ||
-                        !dirty ||
-                        (status && status.success)
-                      }
-                      className="mt-7.5"
-                      type="submit"
-                    >
-                      {sendLabel}
-                    </Button>
+                </button>
+              )}
+              <h3 id="ContactFormTitle" className="w-full text-center">
+                {title}
+              </h3>
+              {status.attempted ? (
+                <ContactFormFeedback
+                  actions={{ resetForm, setStatus }}
+                  status={status}
+                />
+              ) : (
+                <>
+                  <div className="col-span-6 col-start-4 text-center">
+                    {text}
                   </div>
-                </div>
-              </>
-            )}
+                  <div className="flex flex-col items-stretch gap-6">
+                    <FormInput
+                      className="w-full"
+                      name="name"
+                      required
+                      label={nameLabel}
+                      placeholder={namePlaceholder}
+                    />
+                    <FormInput
+                      name="email"
+                      required
+                      label={emailLabel}
+                      placeholder={emailPlaceholder}
+                    />
+                    <FormInput
+                      className="h-40"
+                      textArea
+                      name="message"
+                      required
+                      label={messageLabel}
+                      placeholder={messagePlaceholder}
+                    />
+                    <div className="w-full flex justify-end pt-4">
+                      <Button
+                        iconName="envelope-o"
+                        style_={ButtonStyleEnum.Outline}
+                        disabled={
+                          isSubmitting ||
+                          !isValid ||
+                          !dirty ||
+                          (status && status.success)
+                        }
+                        className="mt-7.5"
+                        type="submit"
+                      >
+                        {sendLabel}
+                      </Button>
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
           </Form>
         )}
       </Formik>

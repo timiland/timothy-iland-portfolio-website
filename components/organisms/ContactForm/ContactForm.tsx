@@ -168,7 +168,7 @@ const ContactForm = ({
                 />
               </motion.div>
             )}
-            <div className="relative z-10 col-span-6 col-start-6 flex flex-col gap-10 xl:gap-20 items-stretch bg-black text-white px-8 pb-10 pt-20 xl:p-20 rounded-3xl shadow-bold border-yellow border-2">
+            <div className="relative z-10 xl:col-span-6 xl:col-start-6 flex flex-col gap-y-10 xl:gap-y-20 bg-black text-white px-8 pb-10 pt-20 xl:p-20 rounded-3xl shadow-bold border-yellow border-2">
               {setIsOpen && (
                 <button
                   onClick={() => setIsOpen?.(false)}

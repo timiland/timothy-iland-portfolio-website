@@ -45,14 +45,15 @@ module.exports = {
           fire: '#E5403C',
         },
         yellow: {
-          DEFAULT: '#FDC628',
+          DEFAULT: '#FFD215',
           50: '#FFF2B7',
           100: '#FFEFA2',
           200: '#FFE779',
           300: '#FFE051',
           400: '#FFD928',
           500: '#FED100',
-          550: '#FDC628', // Barbados
+          550: '#FFD215', // New
+          // 550: '#FDC628', // Barbados
           600: '#C6A300',
           700: '#8E7500',
           800: '#564700',

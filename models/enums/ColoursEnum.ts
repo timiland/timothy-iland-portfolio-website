@@ -1,8 +1,8 @@
 enum ColoursEnum {
-  Yellow = '#FFDE17',
+  Yellow = '#FFD215',
   Black = '#06050D',
   Red = '#E5403C',
-  Green = '#008B45',
+  Green = '#00803F',
   White = '#FFFFFF',
 }
 

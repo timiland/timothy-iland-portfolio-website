@@ -1,4 +1,5 @@
 import BackgroundLogo from '@atoms/BackgroundLogo/BackgroundLogo';
+import ColouredLogo from '@atoms/ColouredLogo/ColouredLogo';
 import ColoursEnum from '@models/enums/ColoursEnum';
 import { INavBar } from '@models/INavBar';
 import ISiteConfig from '@models/ISiteConfig';
@@ -10,6 +11,7 @@ import { ConfigProvider } from '@stores/configProvider';
 import { StoryblokComponent, ISbStoryData } from '@storyblok/react';
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import Head from 'next/head';
+import Link from 'next/link';
 
 const Page = ({
   config,
@@ -21,22 +23,35 @@ const Page = ({
   const { navBar, footer } = config ?? {};
 
   if (!story?.content) {
-    return <div>Loading...</div>;
+    return (
+      <div className="h-screen px-5 w-full flex items-center flex-col gap-12 justify-center">
+        <Link href="/" className="w-full xl:w-1/2">
+          <ColouredLogo
+            className="drop-shadow-black_sm xl:drop-shadow-black_lg -translate-x-3 xl:-translate-x-12"
+            colour={ColoursEnum.Yellow}
+          />
+        </Link>
+        <h5 className="text-yellow drop-shadow-black_sm">
+          404 : Page Not Found
+        </h5>
+      </div>
+    );
   }
 
   return (
     <div className="w-screen">
       <Head>
-        <title>Timothy Iland</title>
-        <link
-          rel="icon"
-          type="image/svg+xml"
-          href="/assets/images/favicon.svg"
-        />
-        <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+        <title>
+          {story.content.pageTitle ||
+            'Timothy Iland - Custom Websites & Graphics'}
+        </title>
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
         <meta
           name="description"
-          content="Written by A.N. Author, Illustrated by V. Gogh, Price: $17.99, Length: 784 pages"
+          content={
+            story.content.metaDescription || 'Custom Websites, Graphics & more'
+          }
         />
       </Head>
       <ConfigProvider config={config}>

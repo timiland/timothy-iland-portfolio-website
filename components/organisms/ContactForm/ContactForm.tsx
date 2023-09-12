@@ -105,13 +105,10 @@ const ContactForm = ({
         onSubmit={async (values, { setStatus, setSubmitting }) => {
           try {
             await emailjs.send(
-              // process.env.EMAILJS_SERVICE_ID as string,
-              'service_zq797g9',
-              // process.env.EMAILJS_TEMPLATE_ID as string,
-              'template_ykcchef',
+              process.env.EMAILJS_SERVICE_ID as string,
+              process.env.EMAILJS_TEMPLATE_ID as string,
               values,
-              // process.env.EMAILJS_PUBLIC_KEY as string
-              'Jzd7Rjc2_JSba-AWi'
+              process.env.EMAILJS_PUBLIC_KEY as string
             );
             setStatus({
               success: true,

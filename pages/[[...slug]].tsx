@@ -85,19 +85,17 @@ const Page = ({
         
         `}
       </Script>
-      <body>
-        {/* <!-- Google Tag Manager (noscript) --> */}
-        <noscript>
-          <iframe
-            title="google noscript"
-            src="https://www.googletagmanager.com/ns.html?id=GTM-MZCDTRBS"
-            height="0"
-            width="0"
-            className="hidden invisible"
-          />
-        </noscript>
-        {/* <!-- End Google Tag Manager (noscript) --> */}
-      </body>
+      {/* <!-- Google Tag Manager (noscript) --> */}
+      <noscript>
+        <iframe
+          title="google noscript"
+          src="https://www.googletagmanager.com/ns.html?id=GTM-MZCDTRBS"
+          height="0"
+          width="0"
+          className="hidden invisible"
+        />
+      </noscript>
+      {/* <!-- End Google Tag Manager (noscript) --> */}
       <ConfigProvider config={config}>
         {navBar && <NavBar blok={navBar as INavBar} />}
         <BackgroundLogo colour={ColoursEnum.Black} />

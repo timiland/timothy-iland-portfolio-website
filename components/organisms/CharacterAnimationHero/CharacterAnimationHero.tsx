@@ -69,7 +69,7 @@ const CharacterAnimationHero = ({
       className="relative w-full component-padding"
       {...storyblokEditable(blok)}
     >
-      <div className="container grid-container relative">
+      <div className="xl:container grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-12 xl:gap-x-8 lg:gap-x-6 relative">
         <Suspense
           fallback={
             <div className="relative col-span-8 col-start-3 w-full flex flex-col gap-40 justify-start items-center h-[805px] md:h-[705px]">
@@ -125,7 +125,7 @@ const CharacterAnimationHero = ({
           </div>
         </Suspense>
 
-        <div className="col-span-6 col-start-4 flex text-center flex-col gap-12 pt-24">
+        <div className="container xl:px-0 xl:mx-0 col-span-6 col-start-4 flex text-center flex-col gap-12 pt-24">
           {text && <p className="w-full body-lg whitespace-pre-line">{text}</p>}
         </div>
       </div>

@@ -109,7 +109,7 @@ const Modal = ({
               <div
                 className={clsx(
                   modalClasses,
-                  'container h-full w-full overflow-y-auto no-scrollbar'
+                  'h-full w-full overflow-y-auto no-scrollbar'
                 )}
               >
                 <div

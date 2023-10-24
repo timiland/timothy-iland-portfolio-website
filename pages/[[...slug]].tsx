@@ -40,7 +40,7 @@ const Page = ({
   }
 
   return (
-    <div className="w-screen">
+    <div>
       <Head>
         {/* <!-- Google Tag Manager --> */}
         <Script>

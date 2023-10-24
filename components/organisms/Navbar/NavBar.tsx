@@ -26,7 +26,7 @@ const NavBar = ({ blok }: { blok: INavBar }) => {
             breakpoint === '2xl') && <NavBarDesktop {...blok} />}
         </>
       ) : (
-        <div className="container shadow-xl flex relative z-10 bg-black pointer-events-auto text-white justify-between items-center py-4 border-b-2 border-yellow">
+        <div className="px-5 md:px-10 py-4 md:py-3 shadow-xl flex relative z-10 bg-black pointer-events-auto text-white justify-between items-center border-b-2 border-yellow">
           <Link href="/" passHref>
             <ColouredLogo
               className="w-[140px]"

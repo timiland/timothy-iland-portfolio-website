@@ -15,6 +15,7 @@ import TextHightlightSection from '@organisms/TextHightlightSection/TextHightlig
 import MasonryGallery from '@organisms/MasonryGallery/MasonryGallery';
 import dynamic from 'next/dynamic';
 import ProjectListing from '@organisms/ProjectListing/ProjectListing';
+import Product from '@templates/Product';
 import NavBar from '../components/organisms/Navbar/NavBar';
 import Page from '../components/templates/Page';
 import SideImageSection from '../components/organisms/SideImageSection/SideImageSection';
@@ -46,6 +47,7 @@ const components = {
   page: Page,
   accordion: Accordion,
   project: Project,
+  product: Product,
   popOutTextHero: PopOutTextHero,
   projectFeature: ProjectFeature,
   sideImageSection: SideImageSection,
